@@ -167,28 +167,27 @@
 
 
 
-  <meta name="description" content="统计指标对定量数据进行统计描述，常从集中趋势和离中趋势两个方面进行分析  集中趋势度量 指一组数据向某一中心靠拢的倾向，核心在于寻找数据的代表值或中心值 取得集中趋势代表值的方法有两种：数值平均数和 位置平均数  数值平均数 算数平均数 调和平均数 几何平均数   位置平均数 众数 中位数">
-<meta name="keywords" content="统计学习,特征分析">
+  <meta name="description" content="R语言的数据结构R共有6种储存数据的对象类型  向量 列表 数组 数据框 矩阵 因子">
+<meta name="keywords" content="R">
 <meta property="og:type" content="article">
-<meta property="og:title" content="统计分析之集中趋势与离中趋势">
-<meta property="og:url" content="https://www.gengpeng.me/blogs/d999db0/index.html">
+<meta property="og:title" content="R语言的数据结构">
+<meta property="og:url" content="https://www.gengpeng.me/blogs/8afb62cf/index.html">
 <meta property="og:site_name" content="GengPeng&#39;s Blog">
-<meta property="og:description" content="统计指标对定量数据进行统计描述，常从集中趋势和离中趋势两个方面进行分析  集中趋势度量 指一组数据向某一中心靠拢的倾向，核心在于寻找数据的代表值或中心值 取得集中趋势代表值的方法有两种：数值平均数和 位置平均数  数值平均数 算数平均数 调和平均数 几何平均数   位置平均数 众数 中位数">
+<meta property="og:description" content="R语言的数据结构R共有6种储存数据的对象类型  向量 列表 数组 数据框 矩阵 因子">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/d999db0/2018-05-03-discrete_tendency_and_central_tendency01.jpg">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/d999db0/2018-05-03-discrete_tendency_and_central_tendency03.png">
-<meta property="og:updated_time" content="2018-09-09T08:38:53.376Z">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/8afb62cf/数据结构示意.png">
+<meta property="og:updated_time" content="2018-09-19T13:50:57.493Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="统计分析之集中趋势与离中趋势">
-<meta name="twitter:description" content="统计指标对定量数据进行统计描述，常从集中趋势和离中趋势两个方面进行分析  集中趋势度量 指一组数据向某一中心靠拢的倾向，核心在于寻找数据的代表值或中心值 取得集中趋势代表值的方法有两种：数值平均数和 位置平均数  数值平均数 算数平均数 调和平均数 几何平均数   位置平均数 众数 中位数">
-<meta name="twitter:image" content="https://www.gengpeng.me/blogs/d999db0/2018-05-03-discrete_tendency_and_central_tendency01.jpg">
+<meta name="twitter:title" content="R语言的数据结构">
+<meta name="twitter:description" content="R语言的数据结构R共有6种储存数据的对象类型  向量 列表 数组 数据框 矩阵 因子">
+<meta name="twitter:image" content="https://www.gengpeng.me/blogs/8afb62cf/数据结构示意.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://www.gengpeng.me/blogs/d999db0/"/>
+  <link rel="canonical" href="https://www.gengpeng.me/blogs/8afb62cf/"/>
 
 
 
@@ -198,7 +197,7 @@
   };
 </script>
 
-  <title>统计分析之集中趋势与离中趋势 | GengPeng's Blog</title>
+  <title>R语言的数据结构 | GengPeng's Blog</title>
   
 
 
@@ -429,7 +428,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.gengpeng.me/blogs/d999db0/">
+    <link itemprop="mainEntityOfPage" href="https://www.gengpeng.me/blogs/8afb62cf/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GengPeng">
@@ -446,7 +445,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">统计分析之集中趋势与离中趋势
+          <h1 class="post-title" itemprop="name headline">R语言的数据结构
               
             
           </h1>
@@ -471,7 +470,7 @@
                 
               
 
-              <time title="创建时间：2018-05-03 00:00:00" itemprop="dateCreated datePublished" datetime="2018-05-03T00:00:00+08:00">2018-05-03</time>
+              <time title="创建时间：2018-09-18 09:24:09" itemprop="dateCreated datePublished" datetime="2018-09-18T09:24:09+08:00">2018-09-18</time>
             
 
             
@@ -488,7 +487,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-09-09 16:38:53" itemprop="dateModified" datetime="2018-09-09T16:38:53+08:00">2018-09-09</time>
+                <time title="修改时间：2018-09-19 21:50:57" itemprop="dateModified" datetime="2018-09-19T21:50:57+08:00">2018-09-19</time>
               
             
           </span>
@@ -505,7 +504,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/统计学习/" itemprop="url" rel="index"><span itemprop="name">统计学习</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
 
                 
                 
@@ -539,125 +538,181 @@
       
 
       
-        <blockquote>
-<p>统计指标对<strong>定量数据</strong>进行统计描述，常从<strong>集中趋势</strong>和<strong>离中趋势</strong>两个方面进行分析</p>
-</blockquote>
-<h1 id="集中趋势度量"><a href="#集中趋势度量" class="headerlink" title="集中趋势度量"></a>集中趋势度量</h1><blockquote>
-<p>指一组数据向某一中心靠拢的倾向，核心在于寻找数据的代表值或中心值</p>
-<p>取得集中趋势代表值的方法有两种：<strong>数值平均数</strong>和 <strong>位置平均数</strong></p>
+        <h1 id="R语言的数据结构"><a href="#R语言的数据结构" class="headerlink" title="R语言的数据结构"></a>R语言的数据结构</h1><p>R共有<strong>6种储存数据的对象类型</strong></p>
 <ul>
-<li>数值平均数<ul>
-<li>算数平均数</li>
-<li>调和平均数</li>
-<li>几何平均数</li>
-</ul>
-</li>
-<li>位置平均数<ul>
-<li>众数</li>
-<li>中位数</li>
-</ul>
+<li>向量</li>
+<li>列表</li>
+<li>数组</li>
+<li>数据框</li>
+<li>矩阵</li>
+<li>因子<a id="more"></a>
+<img src="/blogs/8afb62cf/数据结构示意.png" title="R中的数据结构">
 </li>
 </ul>
-</blockquote>
-<a id="more"></a>
-<h2 id="数值平均数"><a href="#数值平均数" class="headerlink" title="数值平均数"></a>数值平均数</h2><h3 id="算数平均数"><a href="#算数平均数" class="headerlink" title="算数平均数"></a>算数平均数</h3><blockquote>
-<p>关注数值，鲁棒性弱（稳定性较弱，易受到异常值影响）</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">data = pd.DataFrame(&#123;<span class="string">'value'</span>:np.random.randint(<span class="number">100</span>,<span class="number">120</span>,<span class="number">100</span>),</span><br><span class="line">                    <span class="string">'f'</span>:np.random.rand(<span class="number">100</span>)&#125;)</span><br><span class="line">data[<span class="string">'f'</span>] = data[<span class="string">'f'</span>] / data[<span class="string">'f'</span>].sum()  <span class="comment"># f为权重，这里将f列设置成总和为1的权重占比</span></span><br><span class="line">print(data.head())</span><br><span class="line">print(<span class="string">'-----------------'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 算数平均值</span></span><br><span class="line">mean = data[<span class="string">'value'</span>].mean()</span><br><span class="line">print(<span class="string">'算数平均数为：%.2f'</span>%mean)</span><br><span class="line"></span><br><span class="line">mean_w = (data[<span class="string">'value'</span>] * data[<span class="string">'f'</span>]).sum() / data[<span class="string">'f'</span>].sum()</span><br><span class="line">print(<span class="string">'加权算数平均值为：%.2f'</span>%mean_w)</span><br><span class="line"><span class="comment"># 加权算数平均值 = (x1f1 + x2f2 + ... + xnfn) / (f1 + f2 + ... + fn)</span></span><br></pre></td></tr></table></figure>
-<pre><code>          f  value
-0  0.014970    118
-1  0.007184    116
-2  0.007459    101
-3  0.005892    110
-4  0.016599    119
------------------
-算数平均数为：110.09
-加权算数平均值为：110.69
-</code></pre><h3 id="几何平均数"><a href="#几何平均数" class="headerlink" title="几何平均数"></a>几何平均数</h3><blockquote>
-<p>计算几何平均数要求各观察值之间存在连乘积关系，它的主要用途是</p>
-<ol>
-<li>对比率、指数等进行平均</li>
-<li>计算平均发展速度<ul>
-<li>样本数据非负，主要用于对数正态分布</li>
+<h2 id="向量-Vectors"><a href="#向量-Vectors" class="headerlink" title="向量(Vectors)"></a>向量(Vectors)</h2><p>向量是用于存储数值型、字符型或逻辑型数据的<strong>一维数组</strong>。执行组合功能的函数c()可用来创建向量。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建一个向量</span></span><br><span class="line">apple &lt;- c(<span class="string">'red'</span>,<span class="string">'green'</span>,<span class="string">"yellow"</span>)</span><br><span class="line">num &lt;- c(<span class="number">12</span>, <span class="number">23</span>, <span class="number">34</span>, <span class="number">56</span>, <span class="number">78</span>, <span class="number">83</span>)</span><br><span class="line">print(apple)</span><br><span class="line">print(num)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看向量的类型.</span></span><br><span class="line">print(class(apple))</span><br></pre></td></tr></table></figure>
+<pre><code>[1] &quot;red&quot;    &quot;green&quot;  &quot;yellow&quot;
+[1] 12 23 34 56 78 83
+[1] &quot;character&quot;
+</code></pre><p><strong> !!! 单个向量中，数据的类型必须是相同的</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 向量元素的选取</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 与其他编程语言索引从0计数不同的是，R语言的索引从1开始计数</span></span><br><span class="line">num[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选取多个元素</span></span><br><span class="line">num[<span class="number">1</span>:<span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 索引前加 - 号代表除去这个元素的其他元素，可以看到结果中没有第二个元素</span></span><br><span class="line">apple[-<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选取除了第2个和第3个元素外的其他元素</span></span><br><span class="line">num[-(<span class="number">2</span>:<span class="number">3</span>)]</span><br></pre></td></tr></table></figure>
+<pre><code>12
+12 23 34
+&apos;red&apos; &apos;yellow&apos;
+12 56 78 83
+</code></pre><h2 id="矩阵-Matrix"><a href="#矩阵-Matrix" class="headerlink" title="矩阵(Matrix)"></a>矩阵(Matrix)</h2><p>矩阵是一个<strong>二维数组</strong>，只是每个元素都拥有相同的模式（数值型、字符型或逻辑型）。可通过函数matrix创建矩阵。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># matrix(data = ,nrow = n,ncol = n,byrow = ,dimnames =list(row_vector,col_vector) )</span></span><br><span class="line"><span class="comment"># data包含了矩阵的元素</span></span><br><span class="line"><span class="comment"># nrow和ncol用以指定行和列的维数</span></span><br><span class="line"><span class="comment"># dimnames包含了可选的、以字符型向量表示的行名和列名</span></span><br><span class="line"><span class="comment"># byrow则表明矩阵应当按行填充（byrow=TRUE）还是按列填充（byrow=FALSE），默认情况下按列填充。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a matrix.</span></span><br><span class="line">M = matrix( num, nrow = <span class="number">2</span>, ncol = <span class="number">3</span>, byrow = <span class="literal">TRUE</span>, dimnames = list(c(<span class="string">'人口'</span>,<span class="string">'面积'</span>),c(<span class="string">'北京'</span>,<span class="string">'广州'</span>, <span class="string">'上海'</span>)))</span><br><span class="line">print(M)</span><br></pre></td></tr></table></figure>
+<pre><code>     北京 广州 上海
+人口   12   23   34
+面积   56   78   83
+</code></pre><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">M1 &lt;- matrix(<span class="number">1</span>:<span class="number">20</span>, nrow=<span class="number">5</span>, ncol=<span class="number">4</span>)</span><br><span class="line">print(M1)</span><br></pre></td></tr></table></figure>
+<pre><code>     [,1] [,2] [,3] [,4]
+[1,]    1    6   11   16
+[2,]    2    7   12   17
+[3,]    3    8   13   18
+[4,]    4    9   14   19
+[5,]    5   10   15   20
+</code></pre><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 矩阵元素选取</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 选取列</span></span><br><span class="line">M1[,<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选取行</span></span><br><span class="line">M1[<span class="number">1</span>,]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选取单个元素</span></span><br><span class="line">M1[<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选取符合要求的元素</span></span><br><span class="line">M1[M1&gt;<span class="number">10</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>6 7 8 9 10
+1 6 11 16
+18
+11 12 13 14 15 16 17 18 19 20
+</code></pre><h2 id="数据框-data-frame"><a href="#数据框-data-frame" class="headerlink" title="数据框(data frame)"></a>数据框(data frame)</h2><p>数据框是表格数据对象。与矩阵一样都是二维的，但是不同的是每列可以包含不同的数据模式。 第一列可以是数字，而第二列可以是字符，第三列可以是逻辑的。它是等长度的向量的列表。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df &lt;- data.frame(</span><br><span class="line">   gender = c(<span class="string">"Male"</span>, <span class="string">"Male"</span>,<span class="string">"Female"</span>), </span><br><span class="line">   height = c(<span class="number">152</span>, <span class="number">171.5</span>, <span class="number">165</span>), </span><br><span class="line">   weight = c(<span class="number">81</span>,<span class="number">93</span>, <span class="number">78</span>),</span><br><span class="line">   Age = c(<span class="number">42</span>,<span class="number">38</span>,<span class="number">26</span>)</span><br><span class="line">)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<table> <thead><tr><th scope="col">gender</th><th scope="col">height</th><th scope="col">weight</th><th scope="col">Age</th></tr></thead> <tbody> <tr><td>Male  </td><td>152.0 </td><td>81    </td><td>42    </td></tr> <tr><td>Male  </td><td>171.5 </td><td>93    </td><td>38    </td></tr> <tr><td>Female</td><td>165.0 </td><td>78    </td><td>26    </td></tr> </tbody> </table>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">patientID &lt;- c(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">age &lt;- c(<span class="number">25</span>, <span class="number">34</span>, <span class="number">28</span>, <span class="number">52</span>)</span><br><span class="line">diabetes &lt;- c(<span class="string">"Type1"</span>, <span class="string">"Type2"</span>, <span class="string">"Type1"</span>, <span class="string">"Type1"</span>)</span><br><span class="line">status &lt;- c(<span class="string">"Poor"</span>, <span class="string">"Improved"</span>, <span class="string">"Excellent"</span>, <span class="string">"Poor"</span>)</span><br><span class="line">patientdata &lt;- data.frame(patientID, age, diabetes, status)</span><br><span class="line">patientdata</span><br></pre></td></tr></table></figure>
+<table> <thead><tr><th scope="col">patientID</th><th scope="col">age</th><th scope="col">diabetes</th><th scope="col">status</th></tr></thead> <tbody> <tr><td>1        </td><td>25       </td><td>Type1    </td><td>Poor     </td></tr> <tr><td>2        </td><td>34       </td><td>Type2    </td><td>Improved </td></tr> <tr><td>3        </td><td>28       </td><td>Type1    </td><td>Excellent</td></tr> <tr><td>4        </td><td>52       </td><td>Type1    </td><td>Poor     </td></tr> </tbody> </table>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 索引列</span></span><br><span class="line">print(df$gender)</span><br><span class="line">print(df[,<span class="number">2</span>])</span><br><span class="line">print(df[<span class="number">1</span>:<span class="number">2</span>])</span><br><span class="line">print(df[[<span class="string">'Age'</span>]])</span><br></pre></td></tr></table></figure>
+<pre><code>[1] Male   Male   Female
+Levels: Female Male
+[1] 152.0 171.5 165.0
+  gender height
+1   Male  152.0
+2   Male  171.5
+3 Female  165.0
+[1] 42 38 26
+</code></pre><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 索引行</span></span><br><span class="line">print(df[<span class="number">2</span>:<span class="number">3</span>,])</span><br></pre></td></tr></table></figure>
+<pre><code>  gender height weight Age
+2   Male  171.5     93  38
+3 Female  165.0     78  26
+</code></pre><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 特定条件索引</span></span><br><span class="line">df[df$Age &gt; <span class="number">30</span>]</span><br></pre></td></tr></table></figure>
+<table> <thead><tr><th scope="col">gender</th><th scope="col">height</th><th scope="col">Age</th></tr></thead> <tbody> <tr><td>Male  </td><td>152.0 </td><td>42    </td></tr> <tr><td>Male  </td><td>171.5 </td><td>38    </td></tr> <tr><td>Female</td><td>165.0 </td><td>26    </td></tr> </tbody> </table>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 索引元素</span></span><br><span class="line">print(patientdata[<span class="number">1</span>,<span class="number">3</span>])   <span class="comment"># 第一列第三行</span></span><br><span class="line"></span><br><span class="line">print(df$Age[<span class="number">1</span>])    <span class="comment"># Age列第一行</span></span><br><span class="line"></span><br><span class="line">print(df[[<span class="number">2</span>]][<span class="number">1</span>])  <span class="comment"># 第二列第一行</span></span><br><span class="line"></span><br><span class="line">print(df[[<span class="string">'Age'</span>]][<span class="number">1</span>])  <span class="comment"># Age列第一行</span></span><br></pre></td></tr></table></figure>
+<pre><code>[1] Type1
+Levels: Type1 Type2
+[1] 42
+[1] 152
+[1] 42
+</code></pre><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成成糖尿病类型变量diabetes和病情变量status的列联表</span></span><br><span class="line">table(patientdata$diabetes, patientdata$status)</span><br></pre></td></tr></table></figure>
+<pre><code>      Excellent Improved Poor
+Type1         1        0    2
+Type2         0        1    0
+</code></pre><h2 id="数组-Array"><a href="#数组-Array" class="headerlink" title="数组(Array)"></a>数组(Array)</h2><p>虽然矩阵被限制为二维，但数组可以<strong>具有任何数量的维度</strong>。 数组函数使用一个<strong>dim属性</strong>创建所需的维数。 在下面的例子中，我们创建了一个包含两个元素的数组，每个元素为3x3个矩阵。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Create an array.</span></span><br><span class="line">a &lt;- array(c(<span class="string">'green'</span>,<span class="string">'yellow'</span>),dim = c(<span class="number">3</span>,<span class="number">3</span>,<span class="number">2</span>))</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
+<pre><code>, , 1
+
+     [,1]     [,2]     [,3]    
+[1,] &quot;green&quot;  &quot;yellow&quot; &quot;green&quot; 
+[2,] &quot;yellow&quot; &quot;green&quot;  &quot;yellow&quot;
+[3,] &quot;green&quot;  &quot;yellow&quot; &quot;green&quot; 
+
+, , 2
+
+     [,1]     [,2]     [,3]    
+[1,] &quot;yellow&quot; &quot;green&quot;  &quot;yellow&quot;
+[2,] &quot;green&quot;  &quot;yellow&quot; &quot;green&quot; 
+[3,] &quot;yellow&quot; &quot;green&quot;  &quot;yellow&quot;
+</code></pre><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dim1 &lt;- c(<span class="string">"A1"</span>, <span class="string">"A2"</span>)</span><br><span class="line">dim2 &lt;- c(<span class="string">"B1"</span>, <span class="string">"B2"</span>, <span class="string">"B3"</span>)</span><br><span class="line">dim3 &lt;- c(<span class="string">"C1"</span>, <span class="string">"C2"</span>, <span class="string">"C3"</span>, <span class="string">"C4"</span>)</span><br><span class="line">z &lt;- array(<span class="number">1</span>:<span class="number">24</span>, c(<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>), dimnames=list(dim1, dim2, dim3))</span><br><span class="line">print(z)</span><br></pre></td></tr></table></figure>
+<pre><code>, , C1
+
+   B1 B2 B3
+A1  1  3  5
+A2  2  4  6
+
+, , C2
+
+   B1 B2 B3
+A1  7  9 11
+A2  8 10 12
+
+, , C3
+
+   B1 B2 B3
+A1 13 15 17
+A2 14 16 18
+
+, , C4
+
+   B1 B2 B3
+A1 19 21 23
+A2 20 22 24
+</code></pre><p>数组的索引同矩阵，只不过下标从2个变成了3个，<strong>数组同矩阵一样，数据类型必须一样</strong></p>
+<h2 id="因子-Factors"><a href="#因子-Factors" class="headerlink" title="因子(Factors)"></a>因子(Factors)</h2><p>我们都知道，变量的类型可以分为如下几种  </p>
+<ul>
+<li><strong>类别变量（定性变量）</strong><ul>
+<li>无序类别变量（名义值）：类别无法排序，没有顺序关系，比如行业类别，性别</li>
+<li>有序类别变量（顺序值）：类别之间有顺序关系，比如等级，评价‘差’，‘一般’，‘很好’</li>
 </ul>
 </li>
-<li>复利下的平均年利率</li>
-<li>连续作业的车间求产品的平均合格率</li>
-</ol>
-</blockquote>
-<p>$$<br>G_{n} = \sqrt[n]{x_{1}x_{2}x_{3}x_{4}x_{…}x_{n}}\<br>$$</p>
-<p><a href="https://baike.baidu.com/item/%E5%87%A0%E4%BD%95%E5%B9%B3%E5%9D%87%E6%95%B0/5557084#4" target="_blank" rel="noopener">几何平均数(百度百科)</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一位投资者持有股票，1996年，1997年，1998年，1999年收益率分别为</span></span><br><span class="line"><span class="comment"># 4.5%, 2.0%, 3.5%, 5.4%,</span></span><br><span class="line"><span class="comment"># 求此4年内平均收益率</span></span><br><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> gmean</span><br><span class="line">data_g = gmean(data[<span class="string">'value'</span>])</span><br><span class="line">data_g</span><br></pre></td></tr></table></figure>
-<pre><code>109.96165465844449
-</code></pre><h3 id="位置平均数"><a href="#位置平均数" class="headerlink" title="位置平均数"></a>位置平均数</h3><blockquote>
-<p>中位数：</p>
-<ul>
-<li>关注顺序，鲁棒性强</li>
+<li><strong>数值变量（定量变量）</strong><ul>
+<li>离散变量（有限值）： 只能去有限个值的变量，可以一一列举。</li>
+<li>连续变量（无限值）：在一个或多个区间内取任何值，连续不断不可一一列举，比如温度，身高。</li>
 </ul>
-<p>众数：</p>
-<ul>
-<li>关注频次</li>
+</li>
 </ul>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 中位数</span></span><br><span class="line">med = data[<span class="string">'value'</span>].median()</span><br><span class="line">print(<span class="string">'中位数为%i'</span> % med)</span><br><span class="line"><span class="comment"># 中位数指将总体各单位标志按照大小顺序排列后，中间位置的数字</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 众数</span></span><br><span class="line">m = data[<span class="string">'value'</span>].mode()</span><br><span class="line">print(<span class="string">'众数为'</span>,m.tolist())</span><br><span class="line"><span class="comment"># 众数是一组数据中出现次数最多的数，这里可能返回多个值</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 密度曲线</span></span><br><span class="line">data[<span class="string">'value'</span>].plot(kind=<span class="string">'kde'</span>,style=<span class="string">'--k'</span>,grid=<span class="keyword">True</span>,figsize=(<span class="number">10</span>,<span class="number">6</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 简单算术平均</span></span><br><span class="line">plt.axvline(mean,hold=<span class="keyword">None</span>,color=<span class="string">'r'</span>,linestyle=<span class="string">'--'</span>,alpha=<span class="number">0.8</span>)</span><br><span class="line">plt.text(mean+<span class="number">5</span>,<span class="number">0.005</span>,<span class="string">'简单算术平均值：%.2f'</span> % mean,color=<span class="string">'r'</span>,fontsize=<span class="number">15</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 加权平均数</span></span><br><span class="line">plt.axvline(mean_w,hold=<span class="keyword">None</span>,color=<span class="string">'b'</span>,linestyle=<span class="string">'--'</span>,alpha=<span class="number">0.8</span>)</span><br><span class="line">plt.text(mean+<span class="number">5</span>,<span class="number">0.01</span>,<span class="string">'加权平均值：%.2f'</span> % mean_w,color=<span class="string">'b'</span>,fontsize=<span class="number">15</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 几何平均数</span></span><br><span class="line">plt.axvline(data_g,hold=<span class="keyword">None</span>,color=<span class="string">'g'</span>,linestyle=<span class="string">'--'</span>,alpha=<span class="number">0.8</span>)</span><br><span class="line">plt.text(mean+<span class="number">5</span>,<span class="number">0.015</span>,<span class="string">'几何平均值：%.2f'</span> % data_g,color=<span class="string">'g'</span>,fontsize=<span class="number">15</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 中位数</span></span><br><span class="line">plt.axvline(med,hold=<span class="keyword">None</span>,color=<span class="string">'y'</span>,linestyle=<span class="string">'--'</span>,alpha=<span class="number">0.8</span>)</span><br><span class="line">plt.text(mean+<span class="number">5</span>,<span class="number">0.020</span>,<span class="string">'几何平均值：%.2f'</span> % med,color=<span class="string">'y'</span>,fontsize=<span class="number">15</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>中位数为110
-众数为 [108]
+<p>类别变量在R中被称为<strong>因子</strong>，函数factor()以一个整数向量的形式存储类别值，整数的取值范围是[1-k ]（其中k 是名义型变量中唯一值的个数），同时一个由字符串（原始值）组成的内部向量将映射到这些整数上。这种做法类似于python特征分子中的将类别变量dummy化  </p>
+<p>对于有序变量，我们还可以指定变量对应的编码，使编码与逻辑顺序相一致，比如low,mid,high对应1,2,3</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">patientID &lt;- c(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">age &lt;- c(<span class="number">25</span>, <span class="number">34</span>, <span class="number">28</span>, <span class="number">52</span>)</span><br><span class="line">diabetes &lt;- c(<span class="string">"Type1"</span>, <span class="string">"Type2"</span>, <span class="string">"Type1"</span>, <span class="string">"Type1"</span>)</span><br><span class="line">status &lt;- c(<span class="string">"Poor"</span>, <span class="string">"Improved"</span>, <span class="string">"Excellent"</span>, <span class="string">"Poor"</span>)</span><br><span class="line">diabetes &lt;- factor(diabetes)</span><br><span class="line">status &lt;- factor(status, order=<span class="literal">TRUE</span>)  <span class="comment"># order=TRUE R将此变量当做有序变量对待</span></span><br><span class="line">patientdata &lt;- data.frame(patientID, age, diabetes, status)</span><br><span class="line">str(patientdata）   <span class="comment"># 数据的信息，相当于pandas中的info</span></span><br><span class="line">summary(patientdata)  <span class="comment"># 描述性统计</span></span><br><span class="line"><span class="comment"># 可以看到，描述性统计中，R对数值型分析了最大最小值等，而对因子采用了频数统计。</span></span><br></pre></td></tr></table></figure>
+<pre><code>&apos;data.frame&apos;:    4 obs. of  4 variables:
+ $ patientID: num  1 2 3 4
+ $ age      : num  25 34 28 52
+ $ diabetes : Factor w/ 2 levels &quot;Type1&quot;,&quot;Type2&quot;: 1 2 1 1
+ $ status   : Ord.factor w/ 3 levels &quot;Excellent&quot;&lt;&quot;Improved&quot;&lt;..: 3 2 1 3
 
-Text(115.09,0.02,&apos;几何平均值：110.00&apos;)
-</code></pre><img src="/blogs/d999db0/2018-05-03-discrete_tendency_and_central_tendency01.jpg" title="图1">
-<h1 id="离中趋势度"><a href="#离中趋势度" class="headerlink" title="离中趋势度"></a>离中趋势度</h1><blockquote>
-<p>是指一组数据中个数据值以不同程度偏离其中心（平均数）的趋势，又称标志变动度</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建数据，销售数据</span></span><br><span class="line">data = pd.DataFrame(&#123;<span class="string">'A_sale'</span>:np.random.rand(<span class="number">30</span>)*<span class="number">1000</span>,</span><br><span class="line">                    <span class="string">'B_sale'</span>:np.random.rand(<span class="number">30</span>)*<span class="number">1000</span>&#125;,</span><br><span class="line">                   index = pd.period_range(<span class="string">'20170601'</span>,<span class="string">'20170630'</span>))</span><br><span class="line">print(data.head())</span><br></pre></td></tr></table></figure>
-<pre><code>                A_sale      B_sale
-2017-06-01  574.693080  970.059264
-2017-06-02  278.487440  683.602258
-2017-06-03  830.472896  293.102768
-2017-06-04  505.211093  268.009253
-2017-06-05  316.383594  134.011541
-</code></pre><h2 id="极差与分位差"><a href="#极差与分位差" class="headerlink" title="极差与分位差"></a>极差与分位差</h2><blockquote>
-<p>极差：</p>
-<ul>
-<li>没有考虑中间值的变动情况，测定离中趋势时不准确</li>
-</ul>
-<p>分位差：</p>
-<ul>
-<li>从一组数据踢出部分极端值后的从新计算类似极差的指标，常用的有 <strong>四分位差，八分位差</strong></li>
-</ul>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a_r = data[<span class="string">'A_sale'</span>].max() - data[<span class="string">'A_sale'</span>].min()</span><br><span class="line">b_r = data[<span class="string">'B_sale'</span>].max() - data[<span class="string">'B_sale'</span>].min()</span><br><span class="line">print(<span class="string">'A产品销售额极差为：%.2f,B产品销售额极差为：%.2f'</span>%(a_r,b_r))</span><br></pre></td></tr></table></figure>
-<pre><code>A产品销售额极差为：920.98,B产品销售额极差为：914.30
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sta = data[<span class="string">'A_sale'</span>].describe()</span><br><span class="line">stb = data[<span class="string">'B_sale'</span>].describe()</span><br><span class="line"><span class="comment">#print(sta)</span></span><br><span class="line">a_iqr = sta.loc[<span class="string">'75%'</span>] - sta.loc[<span class="string">'25%'</span>]</span><br><span class="line">b_iqr = stb.loc[<span class="string">'75%'</span>] - stb.loc[<span class="string">'25%'</span>]</span><br><span class="line">print(<span class="string">'A销售额的分位差为：%.2f, B销售额的分位差为：%.2f'</span> % (a_iqr,b_iqr))</span><br></pre></td></tr></table></figure>
-<pre><code>A销售额的分位差为：481.57, B销售额的分位差为：508.45
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 绘制箱型图</span></span><br><span class="line"></span><br><span class="line">color = dict(boxes=<span class="string">'DarkGreen'</span>, whiskers=<span class="string">'DarkOrange'</span>, medians=<span class="string">'DarkBlue'</span>, caps=<span class="string">'Gray'</span>)</span><br><span class="line">data.plot.box(vert=<span class="keyword">False</span>,grid = <span class="keyword">True</span>,color = color,figsize = (<span class="number">10</span>,<span class="number">6</span>))</span><br><span class="line"><span class="comment"># 箱型图</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="方差与标准差"><a href="#方差与标准差" class="headerlink" title="方差与标准差"></a>方差与标准差</h2><ul>
-<li>平均差：平均差是总体所有单位与其算术平均数的离差绝对值的算术平均数，1范数，异常值影响</li>
-</ul>
-<p>$$<br>MD = \frac{\sum_N |x - \bar{x}|}{N}<br>$$</p>
-<ul>
-<li>方差：差的平方的均值，2范数，异常值影响</li>
-</ul>
-<p>总体方差</p>
-<p>$$<br>\sigma^2 = \frac{\sum_N (X-E(X))^2}{N}<br>$$</p>
-<p>样本方差</p>
-<p>$$<br>s^2 = \frac{\sum_N (x - \bar{x})^2}{N-1}<br>$$</p>
-<ul>
-<li>标准差：方差的算数平方根（应用最广）</li>
-</ul>
-<blockquote>
-<p>平均差 VS 方差：对异常值的敏感程度不同</p>
-</blockquote>
-<ul>
-<li>离散系数（常用的是标准差系数：数据标准差和算数平均数的比）</li>
-</ul>
-<p>$$<br>CV = \frac{\sigma}{\mu}<br>$$</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a_std = sta.loc[<span class="string">'std'</span>]</span><br><span class="line">b_std = stb.loc[<span class="string">'std'</span>]</span><br><span class="line">a_var = data[<span class="string">'A_sale'</span>].var()</span><br><span class="line">b_var = data[<span class="string">'B_sale'</span>].var()</span><br><span class="line">print(<span class="string">'A销售额的标准差为：%.2f, B销售额的标准差为：%.2f'</span> % (a_std,b_std))</span><br><span class="line">print(<span class="string">'A销售额的方差为：%.2f, B销售额的方差为：%.2f'</span> % (a_var,b_var))</span><br><span class="line"><span class="comment"># 方差 → 各组中数值与算数平均数离差平方的算术平均数</span></span><br><span class="line"><span class="comment"># 标准差 → 方差的平方根</span></span><br><span class="line"><span class="comment"># 标准差是最常用的离中趋势指标 → 标准差越大，离中趋势越明显</span></span><br></pre></td></tr></table></figure>
-<pre><code>A销售额的标准差为：292.12, B销售额的标准差为：293.35
-A销售额的方差为：85331.19, B销售额的方差为：86052.83
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">fig = plt.figure(figsize = (<span class="number">12</span>,<span class="number">4</span>))</span><br><span class="line">ax1 = fig.add_subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line">data[<span class="string">'A_sale'</span>].plot(kind = <span class="string">'kde'</span>,style = <span class="string">'k--'</span>,grid = <span class="keyword">True</span>,title = <span class="string">'A密度曲线'</span>)</span><br><span class="line">plt.axvline(sta.loc[<span class="string">'50%'</span>],hold=<span class="keyword">None</span>,color=<span class="string">'r'</span>,linestyle=<span class="string">"--"</span>,alpha=<span class="number">0.8</span>)  </span><br><span class="line">plt.axvline(sta.loc[<span class="string">'50%'</span>] - a_std,hold=<span class="keyword">None</span>,color=<span class="string">'b'</span>,linestyle=<span class="string">"--"</span>,alpha=<span class="number">0.8</span>)  </span><br><span class="line">plt.axvline(sta.loc[<span class="string">'50%'</span>] + a_std,hold=<span class="keyword">None</span>,color=<span class="string">'b'</span>,linestyle=<span class="string">"--"</span>,alpha=<span class="number">0.8</span>)  </span><br><span class="line"><span class="comment"># A密度曲线，1个标准差</span></span><br><span class="line"></span><br><span class="line">ax2 = fig.add_subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line">data[<span class="string">'B_sale'</span>].plot(kind = <span class="string">'kde'</span>,style = <span class="string">'k--'</span>,grid = <span class="keyword">True</span>,title = <span class="string">'B密度曲线'</span>)</span><br><span class="line">plt.axvline(stb.loc[<span class="string">'50%'</span>],hold=<span class="keyword">None</span>,color=<span class="string">'r'</span>,linestyle=<span class="string">"--"</span>,alpha=<span class="number">0.8</span>)  </span><br><span class="line">plt.axvline(stb.loc[<span class="string">'50%'</span>] - b_std,hold=<span class="keyword">None</span>,color=<span class="string">'b'</span>,linestyle=<span class="string">"--"</span>,alpha=<span class="number">0.8</span>)  </span><br><span class="line">plt.axvline(stb.loc[<span class="string">'50%'</span>] + b_std,hold=<span class="keyword">None</span>,color=<span class="string">'b'</span>,linestyle=<span class="string">"--"</span>,alpha=<span class="number">0.8</span>)  </span><br><span class="line"><span class="comment"># B密度曲线，1个标准差</span></span><br></pre></td></tr></table></figure>
-<img src="/blogs/d999db0/2018-05-03-discrete_tendency_and_central_tendency03.png" title="图3">
 
+   patientID         age         diabetes       status 
+ Min.   :1.00   Min.   :25.00   Type1:3   Excellent:1  
+ 1st Qu.:1.75   1st Qu.:27.25   Type2:1   Improved :1  
+ Median :2.50   Median :31.00             Poor     :2  
+ Mean   :2.50   Mean   :34.75                          
+ 3rd Qu.:3.25   3rd Qu.:38.50                          
+ Max.   :4.00   Max.   :52.00                          
+</code></pre><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果变量的默认顺序不是按照逻辑顺序排列的，比如status如果是按照improved,poor,excellent排列，</span></span><br><span class="line"><span class="comment"># 那么默认的顺序就无法代表真实逻辑顺序。</span></span><br><span class="line"><span class="comment"># 因此，可以添加levels变量</span></span><br><span class="line">status &lt;- factor(status,order=<span class="literal">TRUE</span>,levels = c(<span class="string">"poor"</span>, <span class="string">"improved"</span>, <span class="string">"excellent"</span>))</span><br><span class="line"><span class="comment"># 这样就相当于指定了顺序，任何在数据中出现而未在参数中列举的数据都将被设为缺失值</span></span><br></pre></td></tr></table></figure>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>R中的列表比较像python中的列表，列表中的元素可以是单个字符，数值，也可以是向量，矩阵，数组等<br>列表就是一些<strong>对象的有序集合</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Create a list.</span></span><br><span class="line">list1 &lt;- list(c(<span class="number">2</span>,<span class="number">5</span>,<span class="number">3</span>),<span class="number">21.3</span>,sin)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print the list.</span></span><br><span class="line">print(list1)</span><br></pre></td></tr></table></figure>
+<pre><code>[[1]]
+[1] 2 5 3
+
+[[2]]
+[1] 21.3
+
+[[3]]
+function (x)  .Primitive(&quot;sin&quot;)
+</code></pre><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">g &lt;- <span class="string">"My First List"</span></span><br><span class="line">h &lt;- c(<span class="number">25</span>, <span class="number">26</span>, <span class="number">18</span>, <span class="number">39</span>)</span><br><span class="line">j &lt;- matrix(<span class="number">1</span>:<span class="number">10</span>, nrow=<span class="number">5</span>)</span><br><span class="line">k &lt;- c(<span class="string">"one"</span>, <span class="string">"two"</span>, <span class="string">"three"</span>)</span><br><span class="line">mylist &lt;- list(title=g, ages=h, j, k)</span><br><span class="line">print(mylistlist)</span><br></pre></td></tr></table></figure>
+<pre><code>$title
+[1] &quot;My First List&quot;
+
+$ages
+[1] 25 26 18 39
+
+[[3]]
+     [,1] [,2]
+[1,]    1    6
+[2,]    2    7
+[3,]    3    8
+[4,]    4    9
+[5,]    5   10
+
+[[4]]
+[1] &quot;one&quot;   &quot;two&quot;   &quot;three&quot;
+</code></pre><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mylist[[<span class="string">'ages'</span>]]  <span class="comment"># 输出ages</span></span><br><span class="line">mylist[[<span class="number">2</span>]]   <span class="comment"># 输出第二个元素</span></span><br></pre></td></tr></table></figure>
+<pre><code>25 26 18 39
+25 26 18 39
+</code></pre>
       
     </div>
 
@@ -678,7 +733,7 @@ A销售额的方差为：85331.19, B销售额的方差为：86052.83
     <strong>本文作者： </strong>GengPeng</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.gengpeng.me/blogs/d999db0/" title="统计分析之集中趋势与离中趋势">https://www.gengpeng.me/blogs/d999db0/</a>
+    <a href="https://www.gengpeng.me/blogs/8afb62cf/" title="R语言的数据结构">https://www.gengpeng.me/blogs/8afb62cf/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -692,9 +747,7 @@ A销售额的方差为：85331.19, B销售额的方差为：86052.83
       
         <div class="post-tags">
           
-            <a href="/tags/统计学习/" rel="tag"><i class="fa fa-tag"></i> 统计学习</a>
-          
-            <a href="/tags/特征分析/" rel="tag"><i class="fa fa-tag"></i> 特征分析</a>
+            <a href="/tags/R/" rel="tag"><i class="fa fa-tag"></i> R</a>
           
         </div>
       
@@ -707,14 +760,18 @@ A销售额的方差为：85331.19, B销售额的方差为：86052.83
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/blogs/2f83e5a7/" rel="next" title="在jupyter notebook中使用R">
+                <i class="fa fa-chevron-left"></i> 在jupyter notebook中使用R
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blogs/f4fe8c7c/" rel="prev" title="kaggle：泰坦尼克幸存者预测">
-                kaggle：泰坦尼克幸存者预测 <i class="fa fa-chevron-right"></i>
+              <a href="/blogs/db1af4ba/" rel="prev" title="R语言的基础语法及常用命令">
+                R语言的基础语法及常用命令 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -919,7 +976,7 @@ A销售额的方差为：85331.19, B销售额的方差为：86052.83
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#集中趋势度量"><span class="nav-number">1.</span> <span class="nav-text">集中趋势度量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数值平均数"><span class="nav-number">1.1.</span> <span class="nav-text">数值平均数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算数平均数"><span class="nav-number">1.1.1.</span> <span class="nav-text">算数平均数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#几何平均数"><span class="nav-number">1.1.2.</span> <span class="nav-text">几何平均数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位置平均数"><span class="nav-number">1.1.3.</span> <span class="nav-text">位置平均数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#离中趋势度"><span class="nav-number">2.</span> <span class="nav-text">离中趋势度</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#极差与分位差"><span class="nav-number">2.1.</span> <span class="nav-text">极差与分位差</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方差与标准差"><span class="nav-number">2.2.</span> <span class="nav-text">方差与标准差</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#R语言的数据结构"><span class="nav-number">1.</span> <span class="nav-text">R语言的数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#向量-Vectors"><span class="nav-number">1.1.</span> <span class="nav-text">向量(Vectors)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵-Matrix"><span class="nav-number">1.2.</span> <span class="nav-text">矩阵(Matrix)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据框-data-frame"><span class="nav-number">1.3.</span> <span class="nav-text">数据框(data frame)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组-Array"><span class="nav-number">1.4.</span> <span class="nav-text">数组(Array)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#因子-Factors"><span class="nav-number">1.5.</span> <span class="nav-text">因子(Factors)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-number">1.6.</span> <span class="nav-text">列表</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1464,30 +1521,6 @@ A销售额的方差为：85331.19, B销售额的方差为：86052.83
   
   
 
-  
-    
-      <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      },
-      TeX: {equationNumbers: { autoNumber: "AMS" }}
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-    
   
 
 

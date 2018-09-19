@@ -167,23 +167,25 @@
 
 
 
-  <meta name="description" content="数据分析|机器学习|统计学习|音乐|Python|读书笔记|R">
-<meta property="og:type" content="website">
-<meta property="og:title" content="GengPeng&#39;s Blog">
-<meta property="og:url" content="https://www.gengpeng.me/index.html">
+  <meta name="description" content="R语言的基础语法及常用命令R其实对于数据分析来说只是工具而已，所以刚开始不需要学习多么深多么细，只需要能够满足当前需求就行，之后的在实践中慢慢学习。毕竟想要把R学精并不是容易的事情。正确的做法就是边做边学，不会就google翻文档。本片主要是R的基础语法及常用的命令操作">
+<meta name="keywords" content="R">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R语言的基础语法及常用命令">
+<meta property="og:url" content="https://www.gengpeng.me/blogs/db1af4ba/index.html">
 <meta property="og:site_name" content="GengPeng&#39;s Blog">
-<meta property="og:description" content="数据分析|机器学习|统计学习|音乐|Python|读书笔记|R">
+<meta property="og:description" content="R语言的基础语法及常用命令R其实对于数据分析来说只是工具而已，所以刚开始不需要学习多么深多么细，只需要能够满足当前需求就行，之后的在实践中慢慢学习。毕竟想要把R学精并不是容易的事情。正确的做法就是边做边学，不会就google翻文档。本片主要是R的基础语法及常用的命令操作">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-19T13:44:43.538Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GengPeng&#39;s Blog">
-<meta name="twitter:description" content="数据分析|机器学习|统计学习|音乐|Python|读书笔记|R">
+<meta name="twitter:title" content="R语言的基础语法及常用命令">
+<meta name="twitter:description" content="R语言的基础语法及常用命令R其实对于数据分析来说只是工具而已，所以刚开始不需要学习多么深多么细，只需要能够满足当前需求就行，之后的在实践中慢慢学习。毕竟想要把R学精并不是容易的事情。正确的做法就是边做边学，不会就google翻文档。本片主要是R的基础语法及常用的命令操作">
 
 
 
 
 
 
-  <link rel="canonical" href="https://www.gengpeng.me/"/>
+  <link rel="canonical" href="https://www.gengpeng.me/blogs/db1af4ba/"/>
 
 
 
@@ -193,7 +195,7 @@
   };
 </script>
 
-  <title>GengPeng's Blog</title>
+  <title>R语言的基础语法及常用命令 | GengPeng's Blog</title>
   
 
 
@@ -259,8 +261,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -301,7 +302,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
     <a href="/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
   </li>
@@ -408,9 +409,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -442,11 +443,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blogs/db1af4ba/" itemprop="url">
-                  R语言的基础语法及常用命令
-                </a>
+          <h1 class="post-title" itemprop="name headline">R语言的基础语法及常用命令
               
             
           </h1>
@@ -527,16 +524,53 @@
       
 
       
-        
-          <h1 id="R语言的基础语法及常用命令"><a href="#R语言的基础语法及常用命令" class="headerlink" title="R语言的基础语法及常用命令"></a>R语言的基础语法及常用命令</h1><p>R其实对于数据分析来说只是工具而已，所以刚开始不需要学习多么深多么细，只需要能够满足当前需求就行，之后的在实践中慢慢学习。<br>毕竟想要把R学精并不是容易的事情。正确的做法就是边做边学，不会就google翻文档。<br>本片主要是R的基础语法及常用的命令操作<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blogs/db1af4ba/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <h1 id="R语言的基础语法及常用命令"><a href="#R语言的基础语法及常用命令" class="headerlink" title="R语言的基础语法及常用命令"></a>R语言的基础语法及常用命令</h1><p>R其实对于数据分析来说只是工具而已，所以刚开始不需要学习多么深多么细，只需要能够满足当前需求就行，之后的在实践中慢慢学习。<br>毕竟想要把R学精并不是容易的事情。正确的做法就是边做边学，不会就google翻文档。<br>本片主要是R的基础语法及常用的命令操作<br><a id="more"></a></p>
+<h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><p>R赋值采用<code>&lt;-</code>或者<code>-&gt;</code>或者<code>=</code>，建议采用标准的第一个。<br><strong>由于R中内置了同名函数c()，最好不要在编码时使用c作为对象名，否则可能产生一些不易察觉的问题</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a &lt;- <span class="number">133</span></span><br><span class="line"><span class="string">"hello"</span> -&gt; b  <span class="comment"># 注意无论哪种写法，大于或小于号都是指向变量名</span></span><br><span class="line">d = <span class="string">'This'</span>  <span class="comment"># 不建议这么用，有可能会造成问题</span></span><br><span class="line"></span><br><span class="line">a</span><br><span class="line">b</span><br><span class="line">d</span><br></pre></td></tr></table></figure>
+<pre><code>133
+
+&apos;hello&apos;
+
+&apos;This&apos;
+</code></pre><h2 id="查看帮助"><a href="#查看帮助" class="headerlink" title="查看帮助"></a>查看帮助</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">help(mean)</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">?mean</span><br></pre></td></tr></table></figure>
+<h2 id="包的安装和加载"><a href="#包的安装和加载" class="headerlink" title="包的安装和加载"></a>包的安装和加载</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取包含R包的库位置</span></span><br><span class="line">.libPaths()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看已经安装的包</span></span><br><span class="line"><span class="keyword">library</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装包</span></span><br><span class="line">install.packages(<span class="string">"packagename"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载包</span></span><br><span class="line"><span class="keyword">library</span>(packagesname)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看已经加载的包</span></span><br><span class="line">(.packages())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载加载的包（注意不是删除包）</span></span><br><span class="line"><span class="keyword">detach</span>(<span class="string">"package:packagename"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除包</span></span><br><span class="line">remove.packages(<span class="string">"packagename"</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="数据的读取与保存"><a href="#数据的读取与保存" class="headerlink" title="数据的读取与保存"></a>数据的读取与保存</h2><h3 id="读取"><a href="#读取" class="headerlink" title="读取"></a>读取</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 读取csv</span></span><br><span class="line">data &lt;- read.csv(<span class="string">'.\\统计学\\example\\ch1\\table1_1.csv'</span>) </span><br><span class="line">head(data,<span class="number">6</span>)    <span class="comment"># 读取前 6行的数据</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取 Excel数据</span></span><br><span class="line"><span class="keyword">library</span>(xlsx)    <span class="comment">#需要安装 xlsx 包</span></span><br><span class="line">data &lt;- read.xlsx(<span class="string">"file"</span>,n)    <span class="comment"># n 为要导入工作表的序号</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取 spss数据</span></span><br><span class="line"><span class="keyword">library</span>(foregin) <span class="comment"># 已经默认安装</span></span><br><span class="line">data &lt;- read.spss(<span class="string">"file"</span>,use.value.labels=<span class="literal">TRUE</span>,as.data.frame=<span class="literal">TRUE</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取 R格式数据</span></span><br><span class="line">data &lt;- load(<span class="string">'.\\统计学\\example\\ch1\\example1_1.RData'</span>)</span><br></pre></td></tr></table></figure>
+<table> <thead><tr><th scope="col">学生姓名</th><th scope="col">统计学</th><th scope="col">数学</th><th scope="col">营销学</th><th scope="col">管理学</th><th scope="col">会计学</th></tr></thead> <tbody> <tr><td>张青松</td><td>68    </td><td> 85   </td><td>84    </td><td>89    </td><td>86    </td></tr> <tr><td>王宇翔</td><td>85    </td><td> 91   </td><td>63    </td><td>76    </td><td>66    </td></tr> <tr><td>田思雨</td><td>74    </td><td> 74   </td><td>61    </td><td>80    </td><td>69    </td></tr> <tr><td>徐丽娜</td><td>88    </td><td>100   </td><td>49    </td><td>71    </td><td>66    </td></tr> <tr><td>张志杰</td><td>63    </td><td> 82   </td><td>89    </td><td>78    </td><td>80    </td></tr> <tr><td>赵颖颖</td><td>78    </td><td> 84   </td><td>51    </td><td>60    </td><td>60    </td></tr> </tbody> </table>
+
+<h3 id="保存"><a href="#保存" class="headerlink" title="保存"></a>保存</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 保存 R格式数据</span></span><br><span class="line">save(data,file = <span class="string">'.\\...\\name.Rdata'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存 csv格式数据</span></span><br><span class="line">write.csv(data,file = <span class="string">'.\\...\\name.csv'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存 xlsx格式</span></span><br><span class="line"><span class="keyword">library</span>(xlsx)</span><br><span class="line">write.xlsx(data, <span class="string">"data.xlsx"</span>,sheet.name=<span class="string">"sheet1"</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="if条件语句"><a href="#if条件语句" class="headerlink" title="if条件语句"></a>if条件语句</h2><h3 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- <span class="number">30L</span>  <span class="comment"># R语言中，在正整数后加 L来表示整型数据（正整数）</span></span><br><span class="line"><span class="keyword">if</span>(is.integer(x)) &#123;</span><br><span class="line">   print(<span class="string">"X is an Integer"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>[1] &quot;X is an Integer&quot;
+</code></pre><h3 id="if…else语句"><a href="#if…else语句" class="headerlink" title="if…else语句"></a>if…else语句</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">y &lt;- list(<span class="string">'a'</span>, <span class="string">'v'</span>, <span class="string">'d'</span>)</span><br><span class="line"><span class="keyword">if</span>(<span class="string">'a'</span> %<span class="keyword">in</span>% y)&#123;    <span class="comment"># %in% 运算符 检查元素是否在向量中</span></span><br><span class="line">    print(<span class="string">'a is in list'</span>)</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;      <span class="comment"># 注意这里的 else语句并不在if的花括号当中</span></span><br><span class="line">    print(<span class="string">'a is not in list'</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>[1] &quot;a is in list&quot;
+</code></pre><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- c(<span class="string">"what"</span>,<span class="string">"is"</span>,<span class="string">"truth"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="string">"Truth"</span> %<span class="keyword">in</span>% x) &#123;</span><br><span class="line">   print(<span class="string">"Truth is found the first time"</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">"truth"</span> %<span class="keyword">in</span>% x) &#123;</span><br><span class="line">   print(<span class="string">"truth is found the second time"</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   print(<span class="string">"No truth found"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>[1] &quot;truth is found the second time&quot;
+</code></pre><h3 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建一个函数，输入的值和选择的函数类型来输出结果。</span></span><br><span class="line">centre &lt;- <span class="keyword">function</span>(x, type) &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span>(type,</span><br><span class="line"></span><br><span class="line">       mean = mean(x),</span><br><span class="line"></span><br><span class="line">       median = median(x),</span><br><span class="line"></span><br><span class="line">       trimmed = mean(x, trim = <span class="number">.1</span>))</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line">centre(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>),<span class="string">'mean'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>3
+</code></pre><h2 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h2><h3 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ant &lt;- <span class="number">2</span></span><br><span class="line"><span class="keyword">while</span>(ant&lt;<span class="number">5</span>)&#123;</span><br><span class="line">    print(<span class="string">'hello'</span>)</span><br><span class="line">    ant = ant + <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>[1] &quot;hello&quot;
+[1] &quot;hello&quot;
+[1] &quot;hello&quot;
+</code></pre><h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">v &lt;- LETTERS[<span class="number">1</span>:<span class="number">4</span>]  <span class="comment"># LETTERS为26个大写字母向量。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(i <span class="keyword">in</span> v)&#123;</span><br><span class="line">    print(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>[1] &quot;A&quot;
+[1] &quot;B&quot;
+[1] &quot;C&quot;
+[1] &quot;D&quot;
+</code></pre><h3 id="repeat循环"><a href="#repeat循环" class="headerlink" title="repeat循环"></a>repeat循环</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">i &lt;- <span class="number">1</span></span><br><span class="line">sum &lt;- <span class="number">0</span></span><br><span class="line"><span class="keyword">repeat</span></span><br><span class="line">&#123;</span><br><span class="line">   sum = sum + i</span><br><span class="line">   <span class="keyword">if</span>( i &gt;= <span class="number">100</span>)   <span class="comment">#如果已循环加到了100，则使用break跳出repeat循环</span></span><br><span class="line">       <span class="keyword">break</span></span><br><span class="line">   i &lt;- i + <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line">print(sum)</span><br></pre></td></tr></table></figure>
+<pre><code>[1] 5050
+</code></pre><h3 id="next语句"><a href="#next语句" class="headerlink" title="next语句"></a>next语句</h3><p>R语言存在next语句，当我们想跳过循环的当前迭代而不终止它时便可使用next。 遇到next时，R解析器跳过本次迭代，并开始循环的下一次迭代。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">k &lt;- LETTERS[<span class="number">1</span>:<span class="number">6</span>]</span><br><span class="line"><span class="keyword">for</span> ( i <span class="keyword">in</span> k) &#123;</span><br><span class="line">   <span class="keyword">if</span> (i == <span class="string">"D"</span>) &#123;</span><br><span class="line">      <span class="keyword">next</span></span><br><span class="line">   &#125;</span><br><span class="line">   print(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>[1] &quot;A&quot;
+[1] &quot;B&quot;
+[1] &quot;C&quot;
+[1] &quot;E&quot;
+[1] &quot;F&quot;
+</code></pre><h2 id="R常用的常量"><a href="#R常用的常量" class="headerlink" title="R常用的常量"></a>R常用的常量</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 26个大写字母</span></span><br><span class="line">LETTERS</span><br><span class="line"></span><br><span class="line"><span class="comment"># 26个小写字母</span></span><br><span class="line">letters</span><br><span class="line"></span><br><span class="line"><span class="comment"># 月份简写</span></span><br><span class="line">month.abb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 月份名称</span></span><br><span class="line">month.name</span><br><span class="line"></span><br><span class="line"><span class="comment"># π 值</span></span><br><span class="line">pi</span><br></pre></td></tr></table></figure>
+<pre><code>&apos;A&apos; &apos;B&apos; &apos;C&apos; &apos;D&apos; &apos;E&apos; &apos;F&apos; &apos;G&apos; &apos;H&apos; &apos;I&apos; &apos;J&apos; &apos;K&apos; &apos;L&apos; &apos;M&apos; &apos;N&apos; &apos;O&apos; &apos;P&apos; &apos;Q&apos; &apos;R&apos; &apos;S&apos; &apos;T&apos; &apos;U&apos; &apos;V&apos; &apos;W&apos; &apos;X&apos; &apos;Y&apos; &apos;Z&apos;
+&apos;a&apos; &apos;b&apos; &apos;c&apos; &apos;d&apos; &apos;e&apos; &apos;f&apos; &apos;g&apos; &apos;h&apos; &apos;i&apos; &apos;j&apos; &apos;k&apos; &apos;l&apos; &apos;m&apos; &apos;n&apos; &apos;o&apos; &apos;p&apos; &apos;q&apos; &apos;r&apos; &apos;s&apos; &apos;t&apos; &apos;u&apos; &apos;v&apos; &apos;w&apos; &apos;x&apos; &apos;y&apos; &apos;z&apos;
+&apos;Jan&apos; &apos;Feb&apos; &apos;Mar&apos; &apos;Apr&apos; &apos;May&apos; &apos;Jun&apos; &apos;Jul&apos; &apos;Aug&apos; &apos;Sep&apos; &apos;Oct&apos; &apos;Nov&apos; &apos;Dec&apos;
+&apos;January&apos; &apos;February&apos; &apos;March&apos; &apos;April&apos; &apos;May&apos; &apos;June&apos; &apos;July&apos; &apos;August&apos; &apos;September&apos; &apos;October&apos; &apos;November&apos; &apos;December&apos;
+3.14159265358979
+</code></pre>
       
     </div>
 
@@ -551,919 +585,54 @@
     
     
       
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.gengpeng.me/blogs/8afb62cf/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GengPeng">
-      <meta itemprop="description" content="数据分析|机器学习|统计学习|音乐|Python|读书笔记|R">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GengPeng's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blogs/8afb62cf/" itemprop="url">
-                  R语言的数据结构
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-09-18 09:24:09" itemprop="dateCreated datePublished" datetime="2018-09-18T09:24:09+08:00">2018-09-18</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-09-19 21:50:57" itemprop="dateModified" datetime="2018-09-19T21:50:57+08:00">2018-09-19</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="R语言的数据结构"><a href="#R语言的数据结构" class="headerlink" title="R语言的数据结构"></a>R语言的数据结构</h1><p>R共有<strong>6种储存数据的对象类型</strong></p>
-<ul>
-<li>向量</li>
-<li>列表</li>
-<li>数组</li>
-<li>数据框</li>
-<li>矩阵</li>
-<li>因子
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blogs/8afb62cf/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-    
-      
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.gengpeng.me/blogs/2f83e5a7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GengPeng">
-      <meta itemprop="description" content="数据分析|机器学习|统计学习|音乐|Python|读书笔记|R">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GengPeng's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blogs/2f83e5a7/" itemprop="url">
-                  在jupyter notebook中使用R
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-09-17 10:26:10 / 修改时间：20:53:37" itemprop="dateCreated datePublished" datetime="2018-09-17T10:26:10+08:00">2018-09-17</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="在jupyter-notebook中使用R"><a href="#在jupyter-notebook中使用R" class="headerlink" title="在jupyter notebook中使用R"></a>在jupyter notebook中使用R</h1><p>  本来我是不打算学习R语言的，毕竟学习了python，已经能够满足大部分需求了。但是最近报了人大的统计学在职研究生，老师说以后的论文是必须要用R语言来写的。(￣▽￣)~*<br>  那就学吧。因为之前一直在用jupyter notebook来写分析报告，所以我就想也用jupyter写R，这样子就很方便了。高兴的是确实可以在jupyter中使用R，但是在网上很难找到教程，好在翻了官网说明后终于搞定了，在这里记录下方法。供日后查阅。(*^▽^*)<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blogs/2f83e5a7/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-    
-      
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.gengpeng.me/blogs/c784bcde/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GengPeng">
-      <meta itemprop="description" content="数据分析|机器学习|统计学习|音乐|Python|读书笔记|R">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GengPeng's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blogs/c784bcde/" itemprop="url">
-                  ACG音乐推荐(1) —— 那些最喜欢的
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-09-01 19:13:47" itemprop="dateCreated datePublished" datetime="2018-09-01T19:13:47+08:00">2018-09-01</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-09-17 20:53:37" itemprop="dateModified" datetime="2018-09-17T20:53:37+08:00">2018-09-17</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Music/" itemprop="url" rel="index"><span itemprop="name">Music</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>想想算来入宅3有余，看了也有200多部动漫了 ，喜欢的动画音乐也不计其数。动画音乐自出生起就有动画本身所赋予的情感生命。所以，对于我来说每一首动画音乐都是有生命的，都是来自某个动画世界里的声音。</p>
-<p>但是，人的精力总归是有限的，不可每天都能把所有的听一遍，所以这里就要发挥人类喜欢排名这个喜好了。在这里推荐一些我最喜欢的ACG音乐。</p>
-<p><strong>我一直相信好的音乐是能够与心共鸣的。</strong></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blogs/c784bcde/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-    
-      
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.gengpeng.me/blogs/f4fe8c7c/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GengPeng">
-      <meta itemprop="description" content="数据分析|机器学习|统计学习|音乐|Python|读书笔记|R">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GengPeng's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blogs/f4fe8c7c/" itemprop="url">
-                  kaggle：泰坦尼克幸存者预测
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-08 00:00:00" itemprop="dateCreated datePublished" datetime="2018-05-08T00:00:00+08:00">2018-05-08</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-09-09 16:38:53" itemprop="dateModified" datetime="2018-09-09T16:38:53+08:00">2018-09-09</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习项目/" itemprop="url" rel="index"><span itemprop="name">机器学习项目</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习项目/kaggle/" itemprop="url" rel="index"><span itemprop="name">kaggle</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <img src="/blogs/f4fe8c7c/titanic-bg.jpg" title="泰坦尼克号">
-<blockquote>
-<p><em>泰坦尼克号是当时（1912年）世界上体积最庞大、内部设施最豪华的客运轮船，有“永不沉没”的美誉 。然而在首次航行中，泰坦尼克号与一座冰山相撞，逾1500人丧生，其中仅333具罹难者遗体被寻回。泰坦尼克号沉没事故为和平时期死伤人数最惨重的海难之一，其残骸直至1985年才被再度发现，目前受到联合国教育、科学及文化组织的保护。本次竞赛以此为背景，根据提供的乘客数据来预测这些乘客能否生还（当然真实的情况要比这复杂得多）。</em></p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blogs/f4fe8c7c/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-    
-      
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.gengpeng.me/blogs/d999db0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GengPeng">
-      <meta itemprop="description" content="数据分析|机器学习|统计学习|音乐|Python|读书笔记|R">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GengPeng's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blogs/d999db0/" itemprop="url">
-                  统计分析之集中趋势与离中趋势
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-03 00:00:00" itemprop="dateCreated datePublished" datetime="2018-05-03T00:00:00+08:00">2018-05-03</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-09-09 16:38:53" itemprop="dateModified" datetime="2018-09-09T16:38:53+08:00">2018-09-09</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/统计学习/" itemprop="url" rel="index"><span itemprop="name">统计学习</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>统计指标对<strong>定量数据</strong>进行统计描述，常从<strong>集中趋势</strong>和<strong>离中趋势</strong>两个方面进行分析</p>
-</blockquote>
-<h1 id="集中趋势度量"><a href="#集中趋势度量" class="headerlink" title="集中趋势度量"></a>集中趋势度量</h1><blockquote>
-<p>指一组数据向某一中心靠拢的倾向，核心在于寻找数据的代表值或中心值</p>
-<p>取得集中趋势代表值的方法有两种：<strong>数值平均数</strong>和 <strong>位置平均数</strong></p>
-<ul>
-<li>数值平均数<ul>
-<li>算数平均数</li>
-<li>调和平均数</li>
-<li>几何平均数</li>
+        <div>
+          <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>GengPeng</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.gengpeng.me/blogs/db1af4ba/" title="R语言的基础语法及常用命令">https://www.gengpeng.me/blogs/db1af4ba/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
 </ul>
-</li>
-<li>位置平均数<ul>
-<li>众数</li>
-<li>中位数</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blogs/d999db0/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    
-
-    
-    
-    
-
-    
-
-    
-    
+        </div>
       
     
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/R/" rel="tag"><i class="fa fa-tag"></i> R</a>
+          
+        </div>
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blogs/8afb62cf/" rel="next" title="R语言的数据结构">
+                <i class="fa fa-chevron-left"></i> R语言的数据结构
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </div>
@@ -1473,14 +642,15 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -1501,8 +671,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1641,6 +820,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#R语言的基础语法及常用命令"><span class="nav-number">1.</span> <span class="nav-text">R语言的基础语法及常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#赋值"><span class="nav-number">1.1.</span> <span class="nav-text">赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看帮助"><span class="nav-number">1.2.</span> <span class="nav-text">查看帮助</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包的安装和加载"><span class="nav-number">1.3.</span> <span class="nav-text">包的安装和加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据的读取与保存"><span class="nav-number">1.4.</span> <span class="nav-text">数据的读取与保存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#读取"><span class="nav-number">1.4.1.</span> <span class="nav-text">读取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存"><span class="nav-number">1.4.2.</span> <span class="nav-text">保存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#if条件语句"><span class="nav-number">1.5.</span> <span class="nav-text">if条件语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#if语句"><span class="nav-number">1.5.1.</span> <span class="nav-text">if语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#if…else语句"><span class="nav-number">1.5.2.</span> <span class="nav-text">if…else语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#switch语句"><span class="nav-number">1.5.3.</span> <span class="nav-text">switch语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环语句"><span class="nav-number">1.6.</span> <span class="nav-text">循环语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#while循环"><span class="nav-number">1.6.1.</span> <span class="nav-text">while循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for循环"><span class="nav-number">1.6.2.</span> <span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#repeat循环"><span class="nav-number">1.6.3.</span> <span class="nav-text">repeat循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#next语句"><span class="nav-number">1.6.4.</span> <span class="nav-text">next语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#R常用的常量"><span class="nav-number">1.7.</span> <span class="nav-text">R常用的常量</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1800,6 +995,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
 
   
 
@@ -2175,47 +1374,7 @@
 
   
   
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        
-      
-    
-  
 
-  
-    
-      <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      },
-      TeX: {equationNumbers: { autoNumber: "AMS" }}
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-    
   
 
 
