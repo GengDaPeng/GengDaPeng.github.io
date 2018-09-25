@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="4fazdw9HUAUX8B1a2DY4MD84nMgdMExghBhQgu6O4Bw" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="cac0vC8oHZ" />
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Comic Sans MS:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.ico?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.ico?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="R可视化之图形控制和布局基础R语言的图形参数主要由par()函数控制，图形布局主要由layout()函数控制 图形参数我们以如下数据为例    剂量(dose) 对药物A的响应(drugA) 对药物B的响应(drugB)     20 16 15   30 20 18   40 27 25   45 40 31   60 60 40">
+<meta name="keywords" content="R,可视化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R可视化之图形参数基础">
+<meta property="og:url" content="https://www.gengpeng.me/blogs/1f7e6963/index.html">
+<meta property="og:site_name" content="GengPeng&#39;s Blog">
+<meta property="og:description" content="R可视化之图形控制和布局基础R语言的图形参数主要由par()函数控制，图形布局主要由layout()函数控制 图形参数我们以如下数据为例    剂量(dose) 对药物A的响应(drugA) 对药物B的响应(drugB)     20 16 15   30 20 18   40 27 25   45 40 31   60 60 40">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/1f7e6963/output_2_0.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/GengDaPeng/GengDaPeng.github.io/hexo/source/_posts/2018-09-23-R%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B9%8B%E5%9B%BE%E5%BD%A2%E5%8F%82%E6%95%B0%E5%9F%BA%E7%A1%80/pch.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/1f7e6963/output_5_0.jpg">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/1f7e6963/output_6_0.jpg">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/1f7e6963/output_9_0.jpg">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/1f7e6963/output_9_1.jpg">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/1f7e6963/output_12_0.jpg">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/1f7e6963/output_15_0.jpg">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/1f7e6963/output_18_0.jpg">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/1f7e6963/output_20_0.jpg">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/1f7e6963/output_24_0.jpg">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/1f7e6963/output_27_0.jpg">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/1f7e6963/output_28_0.jpg">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/1f7e6963/output_29_0.jpg">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/1f7e6963/output_30_0.jpg">
+<meta property="og:updated_time" content="2018-09-25T11:59:49.222Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="R可视化之图形参数基础">
+<meta name="twitter:description" content="R可视化之图形控制和布局基础R语言的图形参数主要由par()函数控制，图形布局主要由layout()函数控制 图形参数我们以如下数据为例    剂量(dose) 对药物A的响应(drugA) 对药物B的响应(drugB)     20 16 15   30 20 18   40 27 25   45 40 31   60 60 40">
+<meta name="twitter:image" content="https://www.gengpeng.me/blogs/1f7e6963/output_2_0.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="https://www.gengpeng.me/blogs/1f7e6963/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>R可视化之图形参数基础 | GengPeng's Blog</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122680302-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-122680302-1');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?21a9a421362d51498b26dface0b7a49c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">GengPeng's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">勿忘初心，方能始终</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-wiki">
+    <a href="/wiki/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-wikipedia-w"></i> <br />维基</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.gengpeng.me/blogs/1f7e6963/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GengPeng">
+      <meta itemprop="description" content="数据分析|机器学习|统计学习|音乐|Python|读书笔记|R">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GengPeng's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">R可视化之图形参数基础
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-23 15:30:48" itemprop="dateCreated datePublished" datetime="2018-09-23T15:30:48+08:00">2018-09-23</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-09-25 19:59:49" itemprop="dateModified" datetime="2018-09-25T19:59:49+08:00">2018-09-25</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/可视化/" itemprop="url" rel="index"><span itemprop="name">可视化</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="R可视化之图形控制和布局基础"><a href="#R可视化之图形控制和布局基础" class="headerlink" title="R可视化之图形控制和布局基础"></a>R可视化之图形控制和布局基础</h1><p>R语言的图形参数主要由par()函数控制，图形布局主要由layout()函数控制</p>
+<h2 id="图形参数"><a href="#图形参数" class="headerlink" title="图形参数"></a>图形参数</h2><p>我们以如下数据为例</p>
+<table>
+<thead>
+<tr>
+<th>剂量(dose)</th>
+<th>对药物A的响应(drugA)</th>
+<th>对药物B的响应(drugB)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20</td>
+<td>16</td>
+<td>15</td>
+</tr>
+<tr>
+<td>30</td>
+<td>20</td>
+<td>18</td>
+</tr>
+<tr>
+<td>40</td>
+<td>27</td>
+<td>25</td>
+</tr>
+<tr>
+<td>45</td>
+<td>40</td>
+<td>31</td>
+</tr>
+<tr>
+<td>60</td>
+<td>60</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">dose  &lt;- c(<span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">45</span>, <span class="number">60</span>)</span><br><span class="line">drugA &lt;- c(<span class="number">16</span>, <span class="number">20</span>, <span class="number">27</span>, <span class="number">40</span>, <span class="number">60</span>)</span><br><span class="line">drugB &lt;- c(<span class="number">15</span>, <span class="number">18</span>, <span class="number">25</span>, <span class="number">31</span>, <span class="number">40</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># par()函数作用是全局的,使用par()修改过的参数除非会话结束，否则将一直保留，之后画</span></span><br><span class="line"><span class="comment"># 的图形将一直使用修改过的参数绘制。</span></span><br><span class="line">opar &lt;- par(no.readonly=<span class="literal">TRUE</span>)  <span class="comment"># 保存原始的par参数</span></span><br><span class="line">par(lty=<span class="number">3</span>,pch=<span class="number">8</span>)    <span class="comment"># 设置线型线宽</span></span><br><span class="line">plot(dose,drugA,type=<span class="string">'b'</span>)  <span class="comment"># 绘制图形</span></span><br><span class="line">par(opar)  <span class="comment"># 将参数恢复为原始参数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># type='b'  表示同时绘制点和线</span></span><br><span class="line"><span class="comment"># type='p'  表示只绘制点</span></span><br><span class="line"><span class="comment"># type='l'  表示只绘制线</span></span><br><span class="line"><span class="comment"># type='o'  表示绘制的线穿过点</span></span><br><span class="line"><span class="comment"># type='c'  表示只绘制线且空出有点的地方（实际就是b模式把点去掉）</span></span><br></pre></td></tr></table></figure>
+<img src="/blogs/1f7e6963/output_2_0.jpg" title="图1">
+<h3 id="符号和线型线宽"><a href="#符号和线型线宽" class="headerlink" title="符号和线型线宽"></a>符号和线型线宽</h3><table>
+<thead>
+<tr>
+<th style="text-align:right">参数</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">lty</td>
+<td style="text-align:center">线条类型</td>
+<td style="text-align:center">solid(即1)</td>
+</tr>
+<tr>
+<td style="text-align:right">lwd</td>
+<td style="text-align:center">线条宽度</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:right">pch</td>
+<td style="text-align:center">设置绘图点和符号的类型</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:right">cex</td>
+<td style="text-align:center">控制文字和绘图符号的大小，cex=1表示正常大小，0.8表示正常大小的80%</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://raw.githubusercontent.com/GengDaPeng/GengDaPeng.github.io/hexo/source/_posts/2018-09-23-R%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B9%8B%E5%9B%BE%E5%BD%A2%E5%8F%82%E6%95%B0%E5%9F%BA%E7%A1%80/pch.png" alt="参数pch对应的绘图符号"></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># R中的线型和线宽</span></span><br><span class="line">plot.new()</span><br><span class="line">plot.window(xlim = c(<span class="number">0</span>, <span class="number">6</span>), ylim =  c(<span class="number">0</span>, <span class="number">6</span>), ann = <span class="literal">F</span>, asp = <span class="number">1</span>)</span><br><span class="line">int &lt;-  <span class="number">0</span>:<span class="number">5</span>+<span class="number">0.5</span></span><br><span class="line">abline(h = int, lty = <span class="number">1</span>:<span class="number">6</span>, lwd = <span class="number">1</span>:<span class="number">6</span>)</span><br><span class="line">text(<span class="number">1</span>, int, paste(rep(<span class="string">"lty = "</span>, <span class="number">6</span>), <span class="number">1</span>:<span class="number">6</span>, rep(<span class="string">", lwd = "</span>, <span class="number">6</span>), <span class="number">1</span>:<span class="number">6</span>), pos = <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<img src="/blogs/1f7e6963/output_5_0.jpg" title="图2">
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plot(dose,drugA,type=<span class="string">'b'</span>,lty=<span class="number">3</span>,lwd=<span class="number">4</span>,pch=<span class="number">15</span>,cex=<span class="number">3</span>)</span><br><span class="line"><span class="comment">#绘制一幅图形，其线条类型为点线，宽度为默认宽度的4倍，点的符号为实心正方形，大小为默认符号大小的3倍</span></span><br></pre></td></tr></table></figure>
+<img src="/blogs/1f7e6963/output_6_0.jpg" title="图3">
+<h3 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h3><p>在R中，可以通过颜色下标、颜色名称、十六进制的颜色值、RGB值或HSV值来指定颜色。举例来说，col=1、col=”white”、col=”#FFFFFF”、col=rgb(1,1,1) 和 col=hsv(0,0,1) 都是表示白色的等价方式.colors()可以返回所有可用的颜色。当需要连续的颜色时，可以使用rainbow()函数来生成。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数</th>
+<th style="text-align:left">描述</th>
+<th style="text-align:right">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">col</td>
+<td style="text-align:left">默认的绘图颜色。某些函数（如lines和pie）可以接受一个含有颜色值的向量并自动循环使用。例如，如果设定col=c(“red”, “blue”)并需要绘制三条线，则第一条线将为红色，第二条线为蓝色，第三条线又将为红色</td>
+<td style="text-align:right">‘black’</td>
+</tr>
+<tr>
+<td style="text-align:right">col.axis</td>
+<td style="text-align:left">坐标轴刻度文字的颜色</td>
+<td style="text-align:right">‘black’</td>
+</tr>
+<tr>
+<td style="text-align:right">col.lab</td>
+<td style="text-align:left">坐标轴标签（名称）的颜色</td>
+<td style="text-align:right">‘black’</td>
+</tr>
+<tr>
+<td style="text-align:right">col.main</td>
+<td style="text-align:left">标题颜色</td>
+<td style="text-align:right">‘black’</td>
+</tr>
+<tr>
+<td style="text-align:right">col.sub</td>
+<td style="text-align:left">副标题颜色</td>
+<td style="text-align:right">‘black’</td>
+</tr>
+<tr>
+<td style="text-align:right">fg</td>
+<td style="text-align:left">图形的前景色</td>
+<td style="text-align:right">‘black’</td>
+</tr>
+<tr>
+<td style="text-align:right">bg</td>
+<td style="text-align:left">图形的背景色</td>
+<td style="text-align:right">‘white’</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mycolors &lt;- rainbow(<span class="number">5</span>)   <span class="comment"># 参数为整数，表示要生成的颜色数量</span></span><br><span class="line">pie(rep(<span class="number">1</span>,<span class="number">5</span>), labels=mycolors, col=mycolors)</span><br><span class="line">mygrays &lt;- gray(<span class="number">0</span>:<span class="number">5</span>/<span class="number">5</span>)   <span class="comment"># 生成 5阶灰度色</span></span><br><span class="line">pie(rep(<span class="number">1</span>, <span class="number">5</span>), labels=mygrays, col=mygrays)</span><br></pre></td></tr></table></figure>
+<img src="/blogs/1f7e6963/output_9_0.jpg" title="图4">
+<img src="/blogs/1f7e6963/output_9_1.jpg" title="图5">
+<h3 id="文本属性"><a href="#文本属性" class="headerlink" title="文本属性"></a>文本属性</h3><p>控制字号，字体， 字样</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">cex</td>
+<td style="text-align:center">控制文字和绘图符号的大小，cex=1表示正常大小，0.8表示正常大小的80%</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:right">cex.axis</td>
+<td style="text-align:center">坐标轴刻度位子的缩放倍数</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:right">cex.lab</td>
+<td style="text-align:center">坐标轴标签（名称）的缩放倍数</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:right">cex.main</td>
+<td style="text-align:center">主标题文字缩放倍数</td>
+<td style="text-align:center">1.2</td>
+</tr>
+<tr>
+<td style="text-align:right">cex.sub</td>
+<td style="text-align:center">副标题的缩放倍数</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:right">font</td>
+<td style="text-align:center">整数。用于指定绘图使用的字体样式。1=常规，2=粗体，3=斜体，4=粗斜体，5=符号字体(以Adobe符号编码表示)</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:right">font.axis</td>
+<td style="text-align:center">坐标轴刻度文字的字体样式</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:right">font.lab</td>
+<td style="text-align:center">坐标轴标签的字体</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:right">font.main</td>
+<td style="text-align:center">主标题的字体</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:right">font.sub</td>
+<td style="text-align:center">副标题的字体样式</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:right">ps</td>
+<td style="text-align:center">字体磅值（1磅约为1/72英寸）.文本的最终大小为 ps*cex</td>
+<td style="text-align:center">12</td>
+</tr>
+<tr>
+<td style="text-align:right">family</td>
+<td style="text-align:center">绘制文本时使用的字体族。标准的取值为serif（衬线）、sans（无衬线）和mono（等宽）</td>
+<td style="text-align:center">‘’</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plot(dose,drugA,type=<span class="string">'b'</span>,font.lab=<span class="number">2</span>, cex.lab=<span class="number">1.5</span>)  <span class="comment"># 坐标轴标签字体斜体且放大1.5倍</span></span><br><span class="line">text(dose-<span class="number">1</span>,drugA+<span class="number">1</span>,drugA,cex=<span class="number">0.8</span>, font=<span class="number">4</span>)  <span class="comment"># 添加文本</span></span><br></pre></td></tr></table></figure>
+<img src="/blogs/1f7e6963/output_12_0.jpg" title="图6">
+<h3 id="图形尺寸和边界尺寸"><a href="#图形尺寸和边界尺寸" class="headerlink" title="图形尺寸和边界尺寸"></a>图形尺寸和边界尺寸</h3><table>
+<thead>
+<tr>
+<th style="text-align:right">参数</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">pin</td>
+<td style="text-align:center">数值型向量c(宽，高)，以英寸表示的图形尺寸</td>
+<td style="text-align:center">(5.4,4.8)</td>
+</tr>
+<tr>
+<td style="text-align:right">mai</td>
+<td style="text-align:center">数值型向量 c(底部，左侧，上方，右侧)，设置图形边距大小，单位英寸</td>
+<td style="text-align:center">c(1,0.8,0.8,0.4)+0.02</td>
+</tr>
+<tr>
+<td style="text-align:right">mar</td>
+<td style="text-align:center">数值型向量 c(底部，左侧，上方，右侧)，设置图形边距大小，单位英分</td>
+<td style="text-align:center">c(5, 4, 4, 2) + 0.1</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">opar &lt;- par(no.readonly=<span class="literal">TRUE</span>)</span><br><span class="line">par(pin=c(<span class="number">2</span>, <span class="number">3</span>),mfcol=c(<span class="number">1</span>,<span class="number">2</span>))</span><br><span class="line">par(lwd=<span class="number">2</span>, cex=<span class="number">1.5</span>)</span><br><span class="line">par(cex.axis=<span class="number">.75</span>, font.axis=<span class="number">3</span>)</span><br><span class="line">plot(dose, drugA, type=<span class="string">"b"</span>, pch=<span class="number">19</span>, lty=<span class="number">2</span>, col=<span class="string">"red"</span>)</span><br><span class="line">plot(dose, drugB, type=<span class="string">"b"</span>, pch=<span class="number">23</span>, lty=<span class="number">6</span>, col=<span class="string">"blue"</span>, bg=<span class="string">"green"</span>)</span><br><span class="line">par(opar)</span><br></pre></td></tr></table></figure>
+<img src="/blogs/1f7e6963/output_15_0.jpg" title="图7">
+<h3 id="添加文本，自定义坐标轴和图例"><a href="#添加文本，自定义坐标轴和图例" class="headerlink" title="添加文本，自定义坐标轴和图例"></a>添加文本，自定义坐标轴和图例</h3><table>
+<thead>
+<tr>
+<th style="text-align:right">参数</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">ann</td>
+<td style="text-align:center">控制高水平绘图函数的主标题和坐标轴标题注释，若ann=FALSE，将不显示这些注释</td>
+<td style="text-align:center">TRUE</td>
+</tr>
+<tr>
+<td style="text-align:right">side</td>
+<td style="text-align:center">一个整数，表示在图形的哪边绘制坐标轴（1=下，2=左，3=上，4=右)</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:right">at</td>
+<td style="text-align:center">一个数值型向量，表示需要绘制刻度线的位置</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:right">labels</td>
+<td style="text-align:center">一个字符型向量，表示置于刻度线旁边的文字标签（如果为NULL，则将直接使用at中的值</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:right">pos</td>
+<td style="text-align:center">坐标轴线绘制位置的坐标（即与另一条坐标轴相交位置的值）</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:right">las</td>
+<td style="text-align:center">标签是否平行于（=0）或垂直于（=2）坐标轴</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:right">tck</td>
+<td style="text-align:center">刻度线的长度，以相对于绘图区域大小的分数表示（负值表示在图形外侧，正值表示在图形内侧，0表示禁用刻度，1表示绘制网格线）；默认值为-0.01）</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:right">xaxt</td>
+<td style="text-align:center">设置x轴类型，xaxt=”n” 表示没有坐标轴，取其它值都会画出坐标轴</td>
+<td style="text-align:center">s</td>
+</tr>
+<tr>
+<td style="text-align:right">yaxt</td>
+<td style="text-align:center">设置y轴类型，同上</td>
+<td style="text-align:center">s</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">plot(dose, drugA, type=<span class="string">"b"</span>,  </span><br><span class="line">     col=<span class="string">"red"</span>, lty=<span class="number">2</span>, pch=<span class="number">2</span>, lwd=<span class="number">2</span>,</span><br><span class="line">     main=<span class="string">"Clinical Trials for Drug A"</span>,     <span class="comment"># 主标题</span></span><br><span class="line">     sub=<span class="string">"This is hypothetical data"</span>,     <span class="comment"># 副标题</span></span><br><span class="line">     xlab=<span class="string">"Dosage"</span>, ylab=<span class="string">"Drug Response"</span>,    <span class="comment"># x,y轴标签</span></span><br><span class="line">     xlim=c(<span class="number">0</span>, <span class="number">60</span>), ylim=c(<span class="number">0</span>, <span class="number">70</span>))  <span class="comment">#  x,y轴的范围</span></span><br></pre></td></tr></table></figure>
+<img src="/blogs/1f7e6963/output_18_0.jpg" title="图8">
+<p>在高级绘图函数中，都是自带坐标轴标题等属性的。如果想自定义，就要使用ann=FALSE 来禁用坐标轴注释</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- c(<span class="number">1</span>:<span class="number">10</span>)</span><br><span class="line">y &lt;- x</span><br><span class="line">z &lt;- <span class="number">10</span>/x</span><br><span class="line">opar &lt;- par(no.readonly=<span class="literal">TRUE</span>)</span><br><span class="line">par(mar=c(<span class="number">5</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">8</span>) + <span class="number">0.1</span>)  <span class="comment"># 设置边界大小</span></span><br><span class="line">plot(x, y, type=<span class="string">"b"</span>,</span><br><span class="line">     pch=<span class="number">21</span>, col=<span class="string">"red"</span>,  <span class="comment"># 设置符号类型及线颜色</span></span><br><span class="line">     yaxt=<span class="string">"n"</span>, lty=<span class="number">3</span>, ann=<span class="literal">FALSE</span>)  <span class="comment"># 关闭坐标轴及坐标轴注释</span></span><br><span class="line">lines(x, z, type=<span class="string">"b"</span>, pch=<span class="number">22</span>, col=<span class="string">"blue"</span>, lty=<span class="number">2</span>)  <span class="comment"># 绘制 z线</span></span><br><span class="line">axis(<span class="number">2</span>, at=x, labels=x, col.axis=<span class="string">"red"</span>, las=<span class="number">2</span>)  <span class="comment"># 绘制自定义x 轴</span></span><br><span class="line">axis(<span class="number">4</span>, at=z, labels=round(z, digits=<span class="number">2</span>),   <span class="comment"># 绘制自定义y轴</span></span><br><span class="line">     col.axis=<span class="string">"blue"</span>, las=<span class="number">2</span>, cex.axis=<span class="number">0.7</span>, tck=-<span class="number">.01</span>)</span><br><span class="line">mtext(<span class="string">"y=1/x"</span>, side=<span class="number">4</span>, line=<span class="number">3</span>, cex.lab=<span class="number">1</span>, las=<span class="number">2</span>, col=<span class="string">"blue"</span>)   <span class="comment">#坐标轴标签</span></span><br><span class="line">title(<span class="string">"An Example of Creative Axes"</span>,   <span class="comment"># 标题</span></span><br><span class="line">      xlab=<span class="string">"X values"</span>,</span><br><span class="line">      ylab=<span class="string">"Y=X"</span>)</span><br><span class="line">par(opar)</span><br></pre></td></tr></table></figure>
+<img src="/blogs/1f7e6963/output_20_0.jpg" title="图9">
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 参考线</span></span><br><span class="line"></span><br><span class="line">abline(h=c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>), v=(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>))</span><br><span class="line"><span class="comment"># 在y轴1,2,3处，x轴4,5,6处添加参考线</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 图例</span></span><br><span class="line"></span><br><span class="line">legend(location,title,legend....)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>location</td>
+<td>有许多方式可以指定图例的位置。你可以直接给定图例左上角的x、y坐标，也可以执行locator(1)，然后通过鼠标单击给出图例的位置，还可以使用关键字bottom、bottomleft、left、topleft、top、topright、right、bottomright或center放置图例。如果你使用了以上某个关键字，那么可以同时使用参数inset=指定图例向图形内侧移动的大小（以绘图区域大小的分数表示）  </td>
+</tr>
+<tr>
+<td>title</td>
+<td>图例标题的字符串（可选）</td>
+</tr>
+<tr>
+<td>legend</td>
+<td>图例标签组成的字符型向量</td>
+</tr>
+<tr>
+<td>…</td>
+<td>其他选项。如果图例标示的是颜色不同的线条，需要指定col=加上颜色值组成的向量。如果图例标示的是符号不同的点，则需指定pch=加上符号的代码组成的向量。如果图例标示的是不同的线条宽度或线条类型，请使用lwd=或lty=加上宽度值或类型值组成的向量。要为图例创建颜色填充的盒形（常见于条形图、箱线图或饼图），需要使用参数fill=加上颜色值组成的向量</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">dose &lt;- c(<span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">45</span>, <span class="number">60</span>)</span><br><span class="line">drugA &lt;- c(<span class="number">16</span>, <span class="number">20</span>, <span class="number">27</span>, <span class="number">40</span>, <span class="number">60</span>)</span><br><span class="line">drugB &lt;- c(<span class="number">15</span>, <span class="number">18</span>, <span class="number">25</span>, <span class="number">31</span>, <span class="number">40</span>)    <span class="comment"># 输入数据</span></span><br><span class="line">opar &lt;- par(no.readonly=<span class="literal">TRUE</span>)    <span class="comment"># 保存原始参数</span></span><br><span class="line">par(lwd=<span class="number">2</span>, cex=<span class="number">1.5</span>, font.lab=<span class="number">2</span>)    <span class="comment"># 设置线宽， 放大1.5倍， 坐标轴标签字体 粗体</span></span><br><span class="line">plot(dose, drugA, type=<span class="string">"b"</span>,</span><br><span class="line">     pch=<span class="number">15</span>, lty=<span class="number">1</span>, col=<span class="string">"red"</span>, ylim=c(<span class="number">0</span>, <span class="number">60</span>),     <span class="comment"># 设置符号类型，线型， 颜色， y轴取值范围</span></span><br><span class="line">     main=<span class="string">"Drug A vs. Drug B"</span>,     <span class="comment"># 主标题</span></span><br><span class="line">     xlab=<span class="string">"Drug Dosage"</span>, ylab=<span class="string">"Drug Response"</span>)</span><br><span class="line">text(dose-<span class="number">1</span>, drugA+<span class="number">1.8</span>, drugA, col=<span class="string">'red'</span>,cex=<span class="number">0.5</span>,font=<span class="number">2</span>)    <span class="comment"># 添加文本</span></span><br><span class="line">text(dose, drugB-<span class="number">2</span>, drugB, col=<span class="string">'blue'</span>,cex=<span class="number">0.5</span>,font=<span class="number">2</span>)   <span class="comment"># 添加文本</span></span><br><span class="line">lines(dose, drugB, type=<span class="string">"b"</span>,</span><br><span class="line">      pch=<span class="number">17</span>, lty=<span class="number">2</span>, col=<span class="string">"blue"</span>)</span><br><span class="line">abline(h=c(<span class="number">30</span>), lwd=<span class="number">1.5</span>, lty=<span class="number">2</span>, col=<span class="string">"gray"</span>)    <span class="comment"># 参考线</span></span><br><span class="line"><span class="keyword">library</span>(Hmisc)       <span class="comment"># 载入包</span></span><br><span class="line">minor.tick(nx=<span class="number">3</span>, ny=<span class="number">3</span>, tick.ratio=<span class="number">0.5</span>)    <span class="comment"># 添加次要刻度线</span></span><br><span class="line">legend(<span class="string">"topleft"</span>, inset=<span class="number">.05</span>, title=<span class="string">"Drug Type"</span>, c(<span class="string">"A"</span>,<span class="string">"B"</span>),    <span class="comment"># 图例</span></span><br><span class="line">       lty=c(<span class="number">1</span>, <span class="number">2</span>), pch=c(<span class="number">15</span>, <span class="number">17</span>), col=c(<span class="string">"red"</span>, <span class="string">"blue"</span>))</span><br><span class="line">par(opar)</span><br></pre></td></tr></table></figure>
+<img src="/blogs/1f7e6963/output_24_0.jpg" title="图10">
+<p>text()可向绘图区域内部添加文本，而mtext()则向图形的四个边界之一添加文本。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>location</td>
+<td>文本的位置参数。可为一对x,y坐标，也可通过指定location为locator(1)使用鼠标交互式地确定摆放位置</td>
+</tr>
+<tr>
+<td>pos</td>
+<td>文本相对于位置参数的方位。1=下，2=左，3=上，4=右。如果指定了pos，就可以同时指定参数offset=作为偏移量，以相对于单个字符宽度的比例表示</td>
+</tr>
+<tr>
+<td>side</td>
+<td>指定用来放置文本的边。1=下，2=左，3=上，4=右。你可以指定参数line=来内移或外移文本，随着值的增加，文本将外移。也可使用adj=0将文本向左下对齐，或使用adj=1右上对齐</td>
+</tr>
+</tbody>
+</table>
+<p>text(lacation, “text”, pos,…)<br>mtext(“text”, side, line=n,…)</p>
+<h2 id="图形布局"><a href="#图形布局" class="headerlink" title="图形布局"></a>图形布局</h2><p>使用layout（）函数可以很容易的绘制出不同布局的拼图。<br>layout(mat,widthhs=rep.int(1,ncol(mat)), height=rep.int(1,nrow(mat)), respect=FALSE)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">mat</td>
+<td>矩阵，描述绘图环境，比如matrix(c(1,2,3,3),nrow=2,ncol=2,byrow=TRUE)表示见绘图区域分割成2行2列，按列填充。第三张图占据整个第二行，前两张图平分第一行</td>
+</tr>
+<tr>
+<td style="text-align:left">widths</td>
+<td>向量，分割区域宽度，widths=(2,1)表示绘图区宽度按照2:1划分</td>
+</tr>
+<tr>
+<td style="text-align:left">heights</td>
+<td>向量，分割区域高度，heights=(3,1)表示绘图区高度按照3:1划分</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在par()函数中使用图形参数 mfrow=c(nrows, ncols)来创建按行填充的、行数为nrows、列数为ncols的图形矩阵。</span></span><br><span class="line"><span class="comment"># nfcol=c(nrows, ncols)按列填充矩阵</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">attach</span>(mtcars)</span><br><span class="line">opar &lt;- par(no.readonly=<span class="literal">TRUE</span>)</span><br><span class="line">par(mfrow=c(<span class="number">2</span>,<span class="number">2</span>))</span><br><span class="line">plot(wt,mpg, main=<span class="string">"Scatterplot of wt vs. mpg"</span>)</span><br><span class="line">plot(wt,disp, main=<span class="string">"Scatterplot of wt vs. disp"</span>)</span><br><span class="line">hist(wt, main=<span class="string">"Histogram of wt"</span>)</span><br><span class="line">boxplot(wt, main=<span class="string">"Boxplot of wt"</span>)</span><br><span class="line">par(opar)</span><br><span class="line"><span class="keyword">detach</span>(mtcars)</span><br></pre></td></tr></table></figure>
+<img src="/blogs/1f7e6963/output_27_0.jpg" title="图11">
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># layout（）函数</span></span><br><span class="line">layout(matrix(c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>), nrow=<span class="number">2</span>, ncol=<span class="number">2</span>), widths=c(<span class="number">2</span>,<span class="number">1</span>))  <span class="comment"># 设置布局 2行2列 默认列填充， 第三幅图占据3,4号位，且宽度是1,2的1/2</span></span><br><span class="line">opar &lt;- par(no.readonly=<span class="literal">TRUE</span>)</span><br><span class="line">par(mai=c(<span class="number">0.6</span>,<span class="number">0.6</span>,<span class="number">0.1</span>,<span class="number">0.1</span>),cex=<span class="number">0.7</span>)      <span class="comment"># 设置图形边距及缩放0.7</span></span><br><span class="line">x &lt;- rnorm(<span class="number">5000</span>)    <span class="comment"># 生成5000个标准正态分布的随机数</span></span><br><span class="line">y &lt;- rchisq(<span class="number">5000</span>, <span class="number">10</span>)    <span class="comment"># 生成5000个卡方分布的随机数</span></span><br><span class="line">hist(x, prob=<span class="literal">TRUE</span>, col=<span class="string">'lightblue'</span>,  <span class="comment"># x 的直方图，</span></span><br><span class="line">     xlab=<span class="string">'x'</span>, ylab=<span class="string">'Density'</span>,  <span class="comment"># 设置坐标轴注释</span></span><br><span class="line">     ylim=c(<span class="number">0</span>,<span class="number">0.4</span>),main=<span class="string">""</span>)   <span class="comment"># 设置y轴范围，禁用主标题</span></span><br><span class="line">hist(y, freq=<span class="literal">FALSE</span>, col=<span class="string">'pink'</span>, xlab=<span class="string">"y"</span>, ylab=<span class="string">'Density'</span>, main=<span class="string">""</span>)</span><br><span class="line">boxplot(x, col=<span class="string">'red'</span>, lwd=<span class="number">1</span>)</span><br><span class="line">par(opar)</span><br></pre></td></tr></table></figure>
+<img src="/blogs/1f7e6963/output_28_0.jpg" title="图12">
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">attach</span>(mtcars)</span><br><span class="line">layout(matrix(c(<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>), <span class="number">2</span>, <span class="number">2</span>, byrow = <span class="literal">TRUE</span>),</span><br><span class="line">       widths=c(<span class="number">3</span>, <span class="number">1</span>), heights=c(<span class="number">1</span>, <span class="number">2</span>))   <span class="comment"># 第二行高度是第一行的2倍，第三幅图的宽度是第二幅图的 1/3</span></span><br><span class="line">hist(wt)</span><br><span class="line">hist(mpg)</span><br><span class="line">hist(disp)</span><br><span class="line"><span class="keyword">detach</span>(mtcars)</span><br></pre></td></tr></table></figure>
+<img src="/blogs/1f7e6963/output_29_0.jpg" title="图13">
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  更精细的控制图形，可以使多张图组合成一张有实际意义的图形</span></span><br><span class="line"><span class="comment">#  利用 fig= 参数来精确的控制绘图，参数fig=的取值是一个形如c(x1, x2, y1, y2)的数值向量</span></span><br><span class="line"><span class="comment">#  想想绘图区域是一个宽为 1 ，高为 1 的矩形，则x1, x2, y1, y2的范围就是[0,1]</span></span><br><span class="line"><span class="comment">#  fig= 默认 会新建一幅图形，所以在添加一幅图到一幅现有图形上时，请设定参数new=TRUE。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">opar &lt;- par(no.readonly=<span class="literal">TRUE</span>)</span><br><span class="line">par(fig=c(<span class="number">0</span>, <span class="number">0.8</span>, <span class="number">0</span>, <span class="number">0.8</span>))    <span class="comment"># 设置散点图范围</span></span><br><span class="line">plot(mtcars$mpg, mtcars$wt,    <span class="comment">#  散点图</span></span><br><span class="line">     xlab=<span class="string">"Miles Per Gallon"</span>,</span><br><span class="line">     ylab=<span class="string">"Car Weight"</span>)</span><br><span class="line">par(fig=c(<span class="number">0</span>, <span class="number">0.8</span>, <span class="number">0.5</span>, <span class="number">1</span>), new=<span class="literal">TRUE</span>)   <span class="comment"># 设置上方箱线图范围，宽于散点图一致，高度范围在0.5-1,。</span></span><br><span class="line">boxplot(mtcars$mpg, horizontal=<span class="literal">TRUE</span>, axes=<span class="literal">FALSE</span>)   <span class="comment"># 上方添加箱线图， 禁用坐标轴</span></span><br><span class="line">par(fig=c(<span class="number">0.6</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0.8</span>), new=<span class="literal">TRUE</span>)   <span class="comment"># 设置右边箱线图，高度与散点图一直，宽度范围在0.6-1.</span></span><br><span class="line">boxplot(mtcars$wt, axes=<span class="literal">FALSE</span>)    <span class="comment"># 右边添加箱线图，禁用坐标轴</span></span><br><span class="line">mtext(<span class="string">"Enhanced Scatterplot"</span>, side=<span class="number">3</span>, outer=<span class="literal">TRUE</span>, line=-<span class="number">3</span>)</span><br><span class="line">par(opar)</span><br></pre></td></tr></table></figure>
+<img src="/blogs/1f7e6963/output_30_0.jpg" title="图14">
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+        <div>
+          <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>GengPeng</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.gengpeng.me/blogs/1f7e6963/" title="R可视化之图形参数基础">https://www.gengpeng.me/blogs/1f7e6963/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+        </div>
+      
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R/" rel="tag"><i class="fa fa-tag"></i> R</a>
+          
+            <a href="/tags/可视化/" rel="tag"><i class="fa fa-tag"></i> 可视化</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blogs/db1af4ba/" rel="next" title="R语言的基础语法及常用命令">
+                <i class="fa fa-chevron-left"></i> R语言的基础语法及常用命令
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="GengPeng" />
+            
+              <p class="site-author-name" itemprop="name">GengPeng</p>
+              <p class="site-description motion-element" itemprop="description">数据分析|机器学习|统计学习|音乐|Python|读书笔记|R</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/GengDaPeng" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:bingshan222@hotmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/yashemao222" target="_blank" title="weibo"><i class="fa fa-fw fa-weibo"></i>weibo</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://blog.csdn.net/ICERON" target="_blank" title="CSDN"><i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+              </a>
+            </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friends Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/112db3be86d6" title="豪威" target="_blank">豪威</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#R可视化之图形控制和布局基础"><span class="nav-number">1.</span> <span class="nav-text">R可视化之图形控制和布局基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#图形参数"><span class="nav-number">1.1.</span> <span class="nav-text">图形参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#符号和线型线宽"><span class="nav-number">1.1.1.</span> <span class="nav-text">符号和线型线宽</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#颜色"><span class="nav-number">1.1.2.</span> <span class="nav-text">颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本属性"><span class="nav-number">1.1.3.</span> <span class="nav-text">文本属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图形尺寸和边界尺寸"><span class="nav-number">1.1.4.</span> <span class="nav-text">图形尺寸和边界尺寸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加文本，自定义坐标轴和图例"><span class="nav-number">1.1.5.</span> <span class="nav-text">添加文本，自定义坐标轴和图例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图形布局"><span class="nav-number">1.2.</span> <span class="nav-text">图形布局</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GengPeng</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.1</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
