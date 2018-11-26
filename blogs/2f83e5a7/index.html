@@ -26,17 +26,6 @@
 
 
 
-  
-  
-    
-      
-    
-    
-      
-    
-  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.min.css" rel="stylesheet">
-
 
 
 
@@ -69,7 +58,7 @@
   
     
   
-  <link href="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+  <link href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
 
 
 
@@ -117,19 +106,19 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.ico?v=6.4.2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.ico?v=6.5.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.ico?v=6.4.2">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.ico?v=6.5.0">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=6.4.2" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
 
 
 
@@ -144,7 +133,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    version: '6.4.2',
+    version: '6.5.0',
     sidebar: {"position":"left","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     fastclick: false,
@@ -177,7 +166,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.gengpeng.me/blogs/2f83e5a7/notebook_R.png">
 <meta property="og:image" content="https://www.gengpeng.me/blogs/2f83e5a7/R1.png">
-<meta property="og:updated_time" content="2018-09-25T12:07:04.932Z">
+<meta property="og:updated_time" content="2018-10-31T15:55:35.661Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在jupyter notebook中使用R">
 <meta name="twitter:description" content="本来我是不打算学习R语言的，毕竟学习了python，已经能够满足大部分需求了。但是最近报了人大的统计学在职研究生，老师说以后的论文是必须要用R语言来写的。(￣▽￣)~*  那就学吧。因为之前一直在用jupyter notebook来写分析报告，所以我就想也用jupyter写R，这样子就很方便了。高兴的是确实可以在jupyter中使用R，但是在网上很难找到教程，好在翻了官网说明后终于搞定了，在这">
@@ -224,6 +213,7 @@
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
+
 
 
 
@@ -488,7 +478,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-09-25 20:07:04" itemprop="dateModified" datetime="2018-09-25T20:07:04+08:00">2018-09-25</time>
+                <time title="修改时间：2018-10-31 23:55:35" itemprop="dateModified" datetime="2018-10-31T23:55:35+08:00">2018-10-31</time>
               
             
           </span>
@@ -542,10 +532,10 @@
         <p>  本来我是不打算学习R语言的，毕竟学习了python，已经能够满足大部分需求了。但是最近报了人大的统计学在职研究生，老师说以后的论文是必须要用R语言来写的。(￣▽￣)~*<br>  那就学吧。因为之前一直在用jupyter notebook来写分析报告，所以我就想也用jupyter写R，这样子就很方便了。高兴的是确实可以在jupyter中使用R，但是在网上很难找到教程，好在翻了官网说明后终于搞定了，在这里记录下方法。供日后查阅。(*^▽^*)<br><a id="more"></a></p>
 <h2 id="R的安装"><a href="#R的安装" class="headerlink" title="R的安装"></a>R的安装</h2><p>R的安装网上教程很多，我就不多赘述了，挺简单的。直接去官网下载文件一路火花带闪电的下一步就可以了。<br>下载地址：<a href="https://cloud.r-project.org/" target="_blank" rel="noopener">R官网下载地址</a></p>
 <h2 id="Rstudio的安装"><a href="#Rstudio的安装" class="headerlink" title="Rstudio的安装"></a>Rstudio的安装</h2><p>毕竟jupyter多用在展示报告上面，并不适合写工程化的程序。而R的IDE还是推荐Rstudio的，有免费版，可以满足大部分需求。<br>下载地址：<a href="https://www.rstudio.com/products/rstudio/download/" target="_blank" rel="noopener">Rstudio下载地址</a></p>
-<h2 id="关联jupyter-notebook"><a href="#关联jupyter-notebook" class="headerlink" title="关联jupyter notebook"></a>关联jupyter notebook</h2><p>如果你没有安装jupyter notebook，需要先安装。我推荐直接使用anaconda，上面自带jupyter notebook而且环境配置都帮你搞定了，自带python<br>相当于最后R和python都可以用。<br>首先我们打开R的命令行，如果不知道可以直接打开Rsudio，在坐下角的console里写如下命令：</p>
+<h2 id="关联jupyter-notebook"><a href="#关联jupyter-notebook" class="headerlink" title="关联jupyter notebook"></a>关联jupyter notebook</h2><p>如果你没有安装jupyter notebook，需要先安装。我推荐直接使用anaconda，上面自带jupyter notebook而且环境配置都帮你搞定了，自带python<br>相当于最后R和python都可以用。<br>首先我们打开R的命令行，如果不知道可以直接打开Rsudio，在左下角的console里写如下命令：</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">install.packages(c(<span class="string">'repr'</span>, <span class="string">'IRdisplay'</span>, <span class="string">'evaluate'</span>, <span class="string">'crayon'</span>, <span class="string">'pbdZMQ'</span>, <span class="string">'devtools'</span>, <span class="string">'uuid'</span>, <span class="string">'digest'</span>))</span><br><span class="line">devtools::install_github(<span class="string">'IRkernel/IRkernel'</span>)</span><br></pre></td></tr></table></figure>
 <p>上面的代码会自动分两步执行，执行完后，在输入如下代码中的一个：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 只在当前用户下安装</span></span><br><span class="line">IRkernel::installspec()</span><br><span class="line"><span class="comment"># 或者是在系统下安装</span></span><br><span class="line">IRkernel::installspec(user = <span class="literal">FALSE</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 只在当前用户下安装</span></span><br><span class="line">IRkernel::installspec()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者是在系统下安装</span></span><br><span class="line">IRkernel::installspec(user = <span class="literal">FALSE</span>)</span><br></pre></td></tr></table></figure>
 <p>等待执行完毕，打开jupyter就可以新建R的notebook了。<br><img src="/blogs/2f83e5a7/notebook_R.png" title="新建notebook"><br>恩~ 就是这么简单，接下来就可以愉快的写R了<br><img src="/blogs/2f83e5a7/R1.png" title="愉快的编写R语句"></p>
 
       
@@ -683,7 +673,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -767,7 +757,7 @@
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="https://weibo.com/yashemao222" target="_blank" title="weibo"><i class="fa fa-fw fa-weibo"></i>weibo</a>
+                  <a href="https://weibo.com/yashemao222" target="_blank" title="Weibo"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
                   
                 </span>
               
@@ -843,7 +833,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright"> &copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
@@ -865,7 +855,7 @@
 
 
 
-  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.2</div>
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.5.0</div>
 
 
 
@@ -964,39 +954,39 @@
 
   
   
-    <script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
   
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.4.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.2"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
 
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
 
 
 
@@ -1361,6 +1351,8 @@
 })();
 </script>
 
+
+  
 
   
   
