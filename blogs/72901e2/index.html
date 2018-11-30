@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="4fazdw9HUAUX8B1a2DY4MD84nMgdMExghBhQgu6O4Bw" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Comic Sans MS:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.ico?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.ico?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.5.0',
+    sidebar: {"position":"left","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="最近一直在做项目里的自动化的工作，为了是从繁琐重复的劳动中挣脱出来，把精力用在数据分析上。自动化方面python是在好不过了，不过既然要提交报表，就不免要美观什么的。pandas虽然很强大，但是无法对Excel完全操作，现学vba有点来不及。于是就找到这个openpyxl包，用python来修改Excel，碍于水平有限，琢磨了两天，踩了不少坑，好在完成了自动化工作（以后起码多出来几个小时，美滋滋）">
+<meta name="keywords" content="python,Excel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python利用openpyxl来操作Excel（一）">
+<meta property="og:url" content="https://www.gengpeng.me/blogs/72901e2/index.html">
+<meta property="og:site_name" content="GengPeng&#39;s Blog">
+<meta property="og:description" content="最近一直在做项目里的自动化的工作，为了是从繁琐重复的劳动中挣脱出来，把精力用在数据分析上。自动化方面python是在好不过了，不过既然要提交报表，就不免要美观什么的。pandas虽然很强大，但是无法对Excel完全操作，现学vba有点来不及。于是就找到这个openpyxl包，用python来修改Excel，碍于水平有限，琢磨了两天，踩了不少坑，好在完成了自动化工作（以后起码多出来几个小时，美滋滋）">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/72901e2/1.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/72901e2/3.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/72901e2/5.png">
+<meta property="og:updated_time" content="2018-11-30T16:41:49.803Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python利用openpyxl来操作Excel（一）">
+<meta name="twitter:description" content="最近一直在做项目里的自动化的工作，为了是从繁琐重复的劳动中挣脱出来，把精力用在数据分析上。自动化方面python是在好不过了，不过既然要提交报表，就不免要美观什么的。pandas虽然很强大，但是无法对Excel完全操作，现学vba有点来不及。于是就找到这个openpyxl包，用python来修改Excel，碍于水平有限，琢磨了两天，踩了不少坑，好在完成了自动化工作（以后起码多出来几个小时，美滋滋）">
+<meta name="twitter:image" content="https://www.gengpeng.me/blogs/72901e2/1.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://www.gengpeng.me/blogs/72901e2/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Python利用openpyxl来操作Excel（一） | GengPeng's Blog</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122680302-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-122680302-1');
+</script>
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">GengPeng's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">勿忘初心，方能始终</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-wiki">
+    <a href="/wiki/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-wikipedia-w"></i> <br />维基</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.gengpeng.me/blogs/72901e2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GengPeng">
+      <meta itemprop="description" content="数据分析|机器学习|统计学习|音乐|Python|读书笔记|R">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GengPeng's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python利用openpyxl来操作Excel（一）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-01 00:09:08 / 修改时间：00:41:49" itemprop="dateCreated datePublished" datetime="2018-12-01T00:09:08+08:00">2018-12-01</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近一直在做项目里的自动化的工作，为了是从繁琐重复的劳动中挣脱出来，把精力用在数据分析上。自动化方面python是在好不过了，不过既然要提交报表，<br>就不免要美观什么的。pandas虽然很强大，但是无法对Excel完全操作，现学vba有点来不及。于是就找到这个openpyxl包，用python来修改Excel，碍于水平<br>有限，琢磨了两天，踩了不少坑，好在完成了自动化工作（以后起码多出来几个小时，美滋滋）。</p>
+<p>在这里写下这两天的笔记和踩得坑，方面新手躲坑，也供自己日后查阅。如有问题，还请见谅并指出，多谢。<br><a id="more"></a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> openpyxl <span class="keyword">import</span> load_workbook</span><br><span class="line"><span class="keyword">from</span> openpyxl.styles <span class="keyword">import</span> colors, Font, Fill, NamedStyle</span><br><span class="line"><span class="keyword">from</span> openpyxl.styles <span class="keyword">import</span> PatternFill, Border, Side, Alignment</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载文件</span></span><br><span class="line">wb = load_workbook(<span class="string">'./5a.xlsx'</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>workbook： 工作簿，一个excel文件包含多个sheet。</li>
+<li>worksheet：工作表，一个workbook有多个，表名识别，如“sheet1”,“sheet2”等。</li>
+<li>cell： 单元格，存储数据对象</li>
+</ul>
+<p>文章所用表格为：<br><img src="/blogs/72901e2/1.png" title="所用表格"></p>
+<h2 id="操作sheet"><a href="#操作sheet" class="headerlink" title="操作sheet"></a>操作sheet</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 读取sheetname</span></span><br><span class="line">print(<span class="string">'输出文件所有工作表名：\n'</span>, wb.sheetnames)</span><br><span class="line">ws = wb[<span class="string">'5a'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者不知道名字时</span></span><br><span class="line">sheet_names = wb.sheetnames</span><br><span class="line">ws2 = wb[sheet_names[<span class="number">0</span>]]    <span class="comment"># index为0为第一张表</span></span><br><span class="line">print(ws <span class="keyword">is</span> ws2)</span><br></pre></td></tr></table></figure>
+<pre><code>输出文件所有工作表名：
+ [&apos;5a&apos;]
+True
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改sheetname</span></span><br><span class="line"></span><br><span class="line">ws.title = <span class="string">'5a_'</span></span><br><span class="line">print(<span class="string">'修改sheetname：\n'</span>, wb.sheetnames)</span><br></pre></td></tr></table></figure>
+<pre><code>修改sheetname：
+ [&apos;5a_&apos;]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建新的sheet</span></span><br><span class="line"><span class="comment"># 创建的新表必须要赋值给一个对象，不然只有名字但是没有实际的新表</span></span><br><span class="line"></span><br><span class="line">ws4 = wb.create_sheet(index=<span class="number">0</span>, title=<span class="string">'newsheet'</span>)</span><br><span class="line"><span class="comment"># 什么参数都不写的话，默认插入到最后一个位置且名字为sheet,sheet1...按照顺序排列</span></span><br><span class="line"></span><br><span class="line">ws5 = wb.create_sheet()</span><br><span class="line">print(<span class="string">'创建新的sheet:\n'</span>, wb.sheetnames)</span><br></pre></td></tr></table></figure>
+<pre><code>创建新的sheet:
+ [&apos;newsheet&apos;, &apos;5a_&apos;, &apos;Sheet&apos;]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除sheet</span></span><br><span class="line">wb.remove(ws4)  <span class="comment"># 这里只能写worksheet对象，不能写sheetname</span></span><br><span class="line">print(<span class="string">'删除sheet：\n'</span>, wb.sheetnames)</span><br></pre></td></tr></table></figure>
+<pre><code>删除sheet：
+ [&apos;5a_&apos;, &apos;Sheet&apos;]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改sheet选项卡背景色，默认为白色，设置为RRGGBB模式</span></span><br><span class="line">ws.sheet_properties.tabColor = <span class="string">"FFA500"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取有效区域</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'最大列数为：'</span>, ws.max_column)</span><br><span class="line">print(<span class="string">'最大行数为：'</span>, ws.max_row)</span><br></pre></td></tr></table></figure>
+<pre><code>最大列数为： 5
+最大行数为： 17
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 插入行和列</span></span><br><span class="line">ws.insert_rows(<span class="number">1</span>)  <span class="comment"># 在第一行插入一行</span></span><br><span class="line">ws.insert_cols(<span class="number">2</span>, <span class="number">4</span>)  <span class="comment"># 从第二列开始插入四列</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除行和列</span></span><br><span class="line">ws.delete_cols(<span class="number">6</span>, <span class="number">3</span>)  <span class="comment"># 从第六列（F列）开始，删除3列即（F:H）</span></span><br><span class="line">ws.delete_rows(<span class="number">3</span>)   <span class="comment"># 删除第三行</span></span><br></pre></td></tr></table></figure>
+<h2 id="单元格操作"><a href="#单元格操作" class="headerlink" title="单元格操作"></a>单元格操作</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 读取</span></span><br><span class="line">c = ws[<span class="string">'A1'</span>]</span><br><span class="line">c1 = ws.cell(row=<span class="number">1</span>, column=<span class="number">2</span>)</span><br><span class="line">print(c, c1)</span><br><span class="line">print(c.value, c1.value)</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;Cell &apos;5a_&apos;.A1&gt; &lt;Cell &apos;5a_&apos;.B1&gt;
+dth_title Province
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改</span></span><br><span class="line">ws[<span class="string">'A1'</span>] = <span class="string">'景区名称'</span></span><br><span class="line">ws.cell(<span class="number">1</span>, <span class="number">2</span>).value = <span class="string">'省份'</span></span><br><span class="line">print(c.value, c1.value)</span><br></pre></td></tr></table></figure>
+<pre><code>景区名称 省份
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 读取多个单元格</span></span><br><span class="line"></span><br><span class="line">cell_range = ws[<span class="string">'A1'</span>:<span class="string">'D5'</span>]</span><br><span class="line">colC = ws[<span class="string">'C'</span>]</span><br><span class="line">col_range = ws[<span class="string">'C:D'</span>]</span><br><span class="line">row10 = ws[<span class="number">10</span>]</span><br><span class="line">row_range = ws[<span class="number">5</span>:<span class="number">10</span>]</span><br><span class="line"><span class="comment"># 其返回的结果都是一个包含单元格的元组</span></span><br><span class="line">print(type(cell_range))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> row10:</span><br><span class="line">    print(i)    <span class="comment"># row10只有有效单元格</span></span><br></pre></td></tr></table></figure>
+<pre><code>&lt;class &apos;tuple&apos;&gt;
+&lt;Cell &apos;5a_&apos;.A10&gt;
+&lt;Cell &apos;5a_&apos;.B10&gt;
+&lt;Cell &apos;5a_&apos;.C10&gt;
+&lt;Cell &apos;5a_&apos;.D10&gt;
+&lt;Cell &apos;5a_&apos;.E10&gt;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按照行列操作</span></span><br><span class="line"><span class="keyword">for</span> row <span class="keyword">in</span> ws.iter_rows(min_row=<span class="number">1</span>, max_row=<span class="number">3</span>,</span><br><span class="line">                        min_col=<span class="number">1</span>, max_col=<span class="number">2</span>):</span><br><span class="line">    <span class="keyword">for</span> cell <span class="keyword">in</span> row:</span><br><span class="line">        print(cell)</span><br><span class="line"><span class="comment"># 也可以用worksheet.iter_col(),用法都一样</span></span><br></pre></td></tr></table></figure>
+<pre><code>&lt;Cell &apos;5a_&apos;.A1&gt;
+&lt;Cell &apos;5a_&apos;.B1&gt;
+&lt;Cell &apos;5a_&apos;.A2&gt;
+&lt;Cell &apos;5a_&apos;.B2&gt;
+&lt;Cell &apos;5a_&apos;.A3&gt;
+&lt;Cell &apos;5a_&apos;.B3&gt;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 合并单元格</span></span><br><span class="line">ws.merge_cells(<span class="string">'F1:G1'</span>)</span><br><span class="line">ws[<span class="string">'F1'</span>] = <span class="string">'合并两个单元格'</span></span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">ws.merge_cells(start_row=<span class="number">2</span>, start_column=<span class="number">6</span>, end_row=<span class="number">3</span>, end_column=<span class="number">8</span>)</span><br><span class="line">ws.cell(<span class="number">2</span>, <span class="number">6</span>).value = <span class="string">'合并三个单元格'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 取消合并单元格</span></span><br><span class="line">ws.unmerge_cells(<span class="string">'F1:G1'</span>)</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">ws.unmerge_cells(start_row=<span class="number">2</span>, start_column=<span class="number">6</span>, end_row=<span class="number">3</span>, end_column=<span class="number">8</span>)</span><br><span class="line"></span><br><span class="line">wb.save(<span class="string">'./5a.xlsx'</span>)</span><br><span class="line"><span class="comment"># 保存之前的操作,保存文件时，文件必须是关闭的！！！</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意！！！</strong>，openpyxl对Excel的修改并不像是xlwings一样是实时的，他的修改是<code>暂时保存在内存中</code>的，所以当<br>后面的修改例如我接下来要在第一行插入新的一行做标题，那么当我对新的A1单元格操作的时候，还在内存中的原A1(现在是A2)的单元格<br>原有的修改就会被覆盖。所以要先保存，或者从一开始就计划好更改操作避免这样的事情发生。（别问我怎么知道的，都是泪o(╥﹏╥)o）</p>
+<h2 id="样式修改"><a href="#样式修改" class="headerlink" title="样式修改"></a>样式修改</h2><h3 id="单个单元格样式"><a href="#单个单元格样式" class="headerlink" title="单个单元格样式"></a>单个单元格样式</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">wb = load_workbook(<span class="string">'./5a.xlsx'</span>)    <span class="comment"># 读取修改后的文件</span></span><br><span class="line">ws = wb[<span class="string">'5a_'</span>]</span><br><span class="line"><span class="comment"># 我们来设置一个表头</span></span><br><span class="line">ws.insert_rows(<span class="number">1</span>)    <span class="comment"># 在第一行插入新的一行</span></span><br><span class="line">ws.merge_cells(<span class="string">'A1:E1'</span>)  <span class="comment"># 合并单元格</span></span><br><span class="line">a1 = ws[<span class="string">'A1'</span>]</span><br><span class="line">ws[<span class="string">'A1'</span>] = <span class="string">'5A级风景区名单'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置字体</span></span><br><span class="line">ft = Font(name=<span class="string">'微软雅黑'</span>, color=<span class="string">'000000'</span>, size=<span class="number">15</span>, b=<span class="keyword">True</span>)</span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">name:字体名称</span></span><br><span class="line"><span class="string">color:颜色通常是RGB或aRGB十六进制值</span></span><br><span class="line"><span class="string">b(bold):加粗（bool）</span></span><br><span class="line"><span class="string">i(italic):倾斜(bool)</span></span><br><span class="line"><span class="string">shadow：阴影（bool）</span></span><br><span class="line"><span class="string">underline：下划线（‘doubleAccounting’, ‘single’, ‘double’, ‘singleAccounting’）</span></span><br><span class="line"><span class="string">charset:字符集(int)</span></span><br><span class="line"><span class="string">strike:删除线(bool)</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">a1.font = ft</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置文本对齐</span></span><br><span class="line"></span><br><span class="line">ali = Alignment(horizontal=<span class="string">'center'</span>, vertical=<span class="string">'center'</span>)</span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">horizontal:水平对齐('centerContinuous', 'general', 'distributed',</span></span><br><span class="line"><span class="string">                    'left', 'fill', 'center', 'justify', 'right')</span></span><br><span class="line"><span class="string">vertical:垂直对齐（'distributed', 'top', 'center', 'justify', 'bottom'）</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">a1.alignment = ali</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置图案填充</span></span><br><span class="line"></span><br><span class="line">fill = PatternFill(<span class="string">'solid'</span>, fgColor=<span class="string">'FFA500'</span>)</span><br><span class="line"><span class="comment"># 颜色一般使用十六进制RGB</span></span><br><span class="line"><span class="comment"># 'solid'是图案填充类型，详细可查阅文档</span></span><br><span class="line"></span><br><span class="line">a1.fill = fill</span><br></pre></td></tr></table></figure>
+<p><a href="https://openpyxl.readthedocs.io/en/stable/api/openpyxl.styles.fills.html" target="_blank" rel="noopener">openpyxl.styles.fills模块参数文档</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置边框</span></span><br><span class="line">bian = Side(style=<span class="string">'medium'</span>, color=<span class="string">'000000'</span>)    <span class="comment"># 设置边框样式</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">style:边框线的风格&#123;'dotted','slantDashDot','dashDot','hair','mediumDashDot',</span></span><br><span class="line"><span class="string">        'dashed','mediumDashed','thick','dashDotDot','medium',</span></span><br><span class="line"><span class="string">        'double','thin','mediumDashDotDot'&#125;</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line">border = Border(top=bian, bottom=bian, left=bian, right=bian)</span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">top（上）,bottom（下）,left（左）,right（右）:必须是 Side类型</span></span><br><span class="line"><span class="string">diagonal: 斜线 side类型 </span></span><br><span class="line"><span class="string">diagonalDownd: 右斜线 bool</span></span><br><span class="line"><span class="string">diagonalDown: 左斜线 bool</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># a1.border = border</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> ws[<span class="string">'A1:E1'</span>][<span class="number">0</span>]:   <span class="comment"># 去元组中的每一个cell更改样式</span></span><br><span class="line">    item.border = border</span><br><span class="line"></span><br><span class="line">wb.save(<span class="string">'./5a.xlsx'</span>)  <span class="comment"># 保存更改</span></span><br></pre></td></tr></table></figure>
+<p><strong>再次注意！！！：</strong></p>
+<ul>
+<li>不能使用 <code>a1.border = border</code>，否则只会如下图情况，<code>B1：E1</code>单元格<strong>没有线</strong>。我个人认为是因为线框涉及到相邻单元格边框的改动所以需要单独对每个单元格修改才行。</li>
+<li>不能使用<code>ws[&#39;A1:E1&#39;].border = border</code>,由前面的内容可知，openpyxl的多个单元格其实是一个元组，而元组是没有style的方法的,所以必须一个一个改！！其实官方有其他办法，后面讲。</li>
+</ul>
+<img src="/blogs/72901e2/3.png" title="只有A1边框有加粗">
+<h3 id="按列或行设置样式"><a href="#按列或行设置样式" class="headerlink" title="按列或行设置样式"></a>按列或行设置样式</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 现在我们对整个表进行设置</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取</span></span><br><span class="line">wb = load_workbook(<span class="string">'./5a.xlsx'</span>)</span><br><span class="line">ws = wb[<span class="string">'5a_'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取数据表格范围</span></span><br><span class="line">rows = ws.max_row</span><br><span class="line">cols = ws.max_column</span><br><span class="line"></span><br><span class="line"><span class="comment"># 字体</span></span><br><span class="line">font1 = Font(name=<span class="string">'微软雅黑'</span>, size=<span class="number">11</span>, b=<span class="keyword">True</span>)</span><br><span class="line">font2 = Font(name=<span class="string">'微软雅黑'</span>, size=<span class="number">11</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 边框</span></span><br><span class="line">line_t = Side(style=<span class="string">'thin'</span>, color=<span class="string">'000000'</span>)  <span class="comment"># 细边框</span></span><br><span class="line">line_m = Side(style=<span class="string">'medium'</span>, color=<span class="string">'000000'</span>)  <span class="comment"># 粗边框</span></span><br><span class="line">border1 = Border(top=line_m, bottom=line_t, left=line_t, right=line_t)</span><br><span class="line"><span class="comment"># 与标题相邻的边设置与标题一样</span></span><br><span class="line">border2 = Border(top=line_t, bottom=line_t, left=line_t, right=line_t)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 填充</span></span><br><span class="line">fill = PatternFill(<span class="string">'solid'</span>, fgColor=<span class="string">'CFCFCF'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对齐</span></span><br><span class="line">alignment = Alignment(horizontal=<span class="string">'center'</span>, vertical=<span class="string">'center'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将样式打包命名</span></span><br><span class="line">sty1 = NamedStyle(name=<span class="string">'sty1'</span>, font=font1, fill=fill,</span><br><span class="line">                  border=border1, alignment=alignment)</span><br><span class="line">sty2 = NamedStyle(name=<span class="string">'sty2'</span>, font=font2, border=border2, alignment=alignment)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> r <span class="keyword">in</span> range(<span class="number">2</span>, rows+<span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> c <span class="keyword">in</span> range(<span class="number">1</span>, cols):</span><br><span class="line">        <span class="keyword">if</span> r == <span class="number">2</span>:</span><br><span class="line">            ws.cell(r, c).style = sty1</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            ws.cell(r, c).style = sty2</span><br><span class="line"></span><br><span class="line">wb.save(<span class="string">'./5a.xlsx'</span>)</span><br></pre></td></tr></table></figure>
+<img src="/blogs/72901e2/5.png" title="最终效果">
+<p>对于，设置标题样式，其实官方也给出了一个<a href="https://openpyxl.readthedocs.io/en/stable/styles.html#styling-merged-cells" target="_blank" rel="noopener">自定义函数</a>,设定范围后，范围内的单元格都会合并，并且应用样式，就像是单个cell一样。在这里就不多赘述了，有兴趣的可以看看。很实用。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+        <div>
+          <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>GengPeng</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.gengpeng.me/blogs/72901e2/" title="Python利用openpyxl来操作Excel（一）">https://www.gengpeng.me/blogs/72901e2/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+        </div>
+      
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          
+            <a href="/tags/Excel/" rel="tag"><i class="fa fa-tag"></i> Excel</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blogs/3ccb9cc8/" rel="next" title="python时间序列基础（一）">
+                <i class="fa fa-chevron-left"></i> python时间序列基础（一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="GengPeng" />
+            
+              <p class="site-author-name" itemprop="name">GengPeng</p>
+              <p class="site-description motion-element" itemprop="description">数据分析|机器学习|统计学习|音乐|Python|读书笔记|R</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/GengDaPeng" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:bingshan222@hotmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/yashemao222" target="_blank" title="Weibo"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://blog.csdn.net/ICERON" target="_blank" title="CSDN"><i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+              </a>
+            </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friends Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/112db3be86d6" title="豪威" target="_blank">豪威</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作sheet"><span class="nav-number">1.</span> <span class="nav-text">操作sheet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单元格操作"><span class="nav-number">2.</span> <span class="nav-text">单元格操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样式修改"><span class="nav-number">3.</span> <span class="nav-text">样式修改</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单个单元格样式"><span class="nav-number">3.1.</span> <span class="nav-text">单个单元格样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按列或行设置样式"><span class="nav-number">3.2.</span> <span class="nav-text">按列或行设置样式</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> &copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GengPeng</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.5.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
