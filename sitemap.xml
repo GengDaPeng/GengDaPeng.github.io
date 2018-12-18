@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.gengpeng.me/blogs/72901e2/</loc>
+    <loc>https://www.gengpeng.me/blogs/90825c4b/</loc>
     
-    <lastmod>2018-11-30T16:41:49.803Z</lastmod>
+    <lastmod>2018-12-18T16:25:54.920Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.gengpeng.me/blogs/3ccb9cc8/</loc>
     
-    <lastmod>2018-11-27T11:51:41.018Z</lastmod>
+    <lastmod>2018-12-18T16:25:30.122Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.gengpeng.me/blogs/72901e2/</loc>
+    
+    <lastmod>2018-12-18T16:24:56.219Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.gengpeng.me/blogs/4f39f027/</loc>
+    
+    <lastmod>2018-12-18T16:24:03.048Z</lastmod>
     
   </url>
   
@@ -26,13 +40,6 @@
     <loc>https://www.gengpeng.me/blogs/c784bcde/</loc>
     
     <lastmod>2018-11-23T12:37:30.995Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.gengpeng.me/blogs/90825c4b/</loc>
-    
-    <lastmod>2018-11-23T11:32:58.431Z</lastmod>
     
   </url>
   
@@ -86,14 +93,14 @@
   </url>
   
   <url>
-    <loc>https://www.gengpeng.me/tags/index.html</loc>
+    <loc>https://www.gengpeng.me/categories/index.html</loc>
     
     <lastmod>2018-09-09T08:38:53.712Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.gengpeng.me/categories/index.html</loc>
+    <loc>https://www.gengpeng.me/tags/index.html</loc>
     
     <lastmod>2018-09-09T08:38:53.712Z</lastmod>
     

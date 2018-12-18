@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="4fazdw9HUAUX8B1a2DY4MD84nMgdMExghBhQgu6O4Bw" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Arial:300,300italic,400,400italic,700,700italic|Comic Sans MS:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.ico?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.ico?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.6.0',
+    sidebar: {"position":"left","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="很久之前对seaborn有过一些涉及但是没有深入探究，这次有趁着有数据可视化的需求，就好好学一学 Seaborn其实是在matplotlib的基础上进行了更高级的API封装，从而使得作图更加容易，在大多数情况下使用seaborn就能做出很具有吸引力的图，为数据分析提供了很大的便利性。但是应该把Seaborn视为matplotlib的补充，而不是替代物。 这次就从最基本的图标风格和调色板开始，学习s">
+<meta name="keywords" content="可视化,python,seaborn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python数据可视化seaborn（一）——整体样式与调色板">
+<meta property="og:url" content="https://www.gengpeng.me/blogs/4f39f027/index.html">
+<meta property="og:site_name" content="GengPeng&#39;s Blog">
+<meta property="og:description" content="很久之前对seaborn有过一些涉及但是没有深入探究，这次有趁着有数据可视化的需求，就好好学一学 Seaborn其实是在matplotlib的基础上进行了更高级的API封装，从而使得作图更加容易，在大多数情况下使用seaborn就能做出很具有吸引力的图，为数据分析提供了很大的便利性。但是应该把Seaborn视为matplotlib的补充，而不是替代物。 这次就从最基本的图标风格和调色板开始，学习s">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_2_0.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_4_0.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_6_0.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_8_0.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_10_0.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_12_0.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_14_0.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_16_0.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_17_0.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_19_0.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_21_0.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_21_1.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_23_1.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_25_0.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_25_1.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_27_0.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_27_1.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_27_2.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_27_3.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_29_0.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_29_1.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_29_2.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_29_3.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_31_0.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_31_1.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_32_1.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_33_0.png">
+<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_38_0.png">
+<meta property="og:updated_time" content="2018-12-18T16:24:03.048Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python数据可视化seaborn（一）——整体样式与调色板">
+<meta name="twitter:description" content="很久之前对seaborn有过一些涉及但是没有深入探究，这次有趁着有数据可视化的需求，就好好学一学 Seaborn其实是在matplotlib的基础上进行了更高级的API封装，从而使得作图更加容易，在大多数情况下使用seaborn就能做出很具有吸引力的图，为数据分析提供了很大的便利性。但是应该把Seaborn视为matplotlib的补充，而不是替代物。 这次就从最基本的图标风格和调色板开始，学习s">
+<meta name="twitter:image" content="https://www.gengpeng.me/blogs/4f39f027/output_2_0.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://www.gengpeng.me/blogs/4f39f027/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>python数据可视化seaborn（一）——整体样式与调色板 | GengPeng's Blog</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122680302-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-122680302-1');
+</script>
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">GengPeng's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">勿忘初心，方能始终</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">12</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">12</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">13</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-wiki">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/wiki/" rel="section"><i class="menu-item-icon fa fa-fw fa-wikipedia-w"></i> <br />维基</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.gengpeng.me/blogs/4f39f027/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GengPeng">
+      <meta itemprop="description" content="数据分析|机器学习|统计学习|音乐|Python|读书笔记|R">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GengPeng's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python数据可视化seaborn（一）——整体样式与调色板
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-18 23:58:42" itemprop="dateCreated datePublished" datetime="2018-12-18T23:58:42+08:00">2018-12-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-19 00:24:03" itemprop="dateModified" datetime="2018-12-19T00:24:03+08:00">2018-12-19</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/可视化/" itemprop="url" rel="index"><span itemprop="name">可视化</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>很久之前对seaborn有过一些涉及但是没有深入探究，这次有趁着有数据可视化的需求，就好好学一学</p>
+<p>Seaborn其实是在matplotlib的基础上进行了更高级的API封装，从而使得作图更加容易，在大多数情况下使用seaborn就能做出很具有吸引力的图，为数据分析提供了很大的便利性。但是应该把Seaborn视为matplotlib的补充，而不是替代物。</p>
+<p>这次就从最基本的图标风格和调色板开始，学习seaborn。<br><a id="more"></a></p>
+<h1 id="图表风格（style）设置"><a href="#图表风格（style）设置" class="headerlink" title="图表风格（style）设置"></a>图表风格（style）设置</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 利用 matplotlib创建一个正弦函数及图表</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sinplot</span><span class="params">(flip=<span class="number">1</span>)</span>:</span></span><br><span class="line">    x = np.linspace(<span class="number">0</span>, <span class="number">14</span>, <span class="number">100</span>)</span><br><span class="line"><span class="comment">#     fig = plt.figure(figsize=(10,6))</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">7</span>):</span><br><span class="line">        plt.plot(x, np.sin(x + i * <span class="number">.5</span>) * (<span class="number">7</span> - i) * flip)</span><br><span class="line"></span><br><span class="line">sinplot()</span><br></pre></td></tr></table></figure>
+<p><img src="output_2_0.png" alt="png"></p>
+<h2 id="sns-set-设置样式参数"><a href="#sns-set-设置样式参数" class="headerlink" title="sns.set()  设置样式参数"></a>sns.set()  设置样式参数</h2><p><em>seaborn.set（context =’notebook’，style =’darkgrid’，palette =’deep’，font =’sans-serif’，font_scale = 1，color_codes = True，rc = None)</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sns.set(style=<span class="string">'darkgrid'</span>,font_scale=<span class="number">1.5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 利用此方法可以快速设置seaborn的默认风格，当然也可以添加参数设置其他风格</span></span><br><span class="line"><span class="comment"># font_scale：float，单独的缩放因子可以独立缩放字体元素的大小。</span></span><br><span class="line"></span><br><span class="line">sinplot()</span><br></pre></td></tr></table></figure>
+<p><img src="output_4_0.png" alt="png"></p>
+<h2 id="set-style-设置图标风格"><a href="#set-style-设置图标风格" class="headerlink" title="set_style() 设置图标风格"></a>set_style() 设置图标风格</h2><p><em>seaborn.set_style（style = None，rc = None )</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 切换seaborn图表风格</span></span><br><span class="line"><span class="comment"># 风格选择包括："white", "dark", "whitegrid", "darkgrid", "ticks"</span></span><br><span class="line"><span class="comment"># rc：dict，可选,参数映射以覆盖预设的seaborn样式字典中的值</span></span><br><span class="line"></span><br><span class="line">fig = plt.figure(figsize=(<span class="number">10</span>, <span class="number">8</span>))</span><br><span class="line"></span><br><span class="line">ax1 = fig.add_subplot(<span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">sns.set_style(<span class="string">'whitegrid'</span>,&#123;<span class="string">"xtick.major.size"</span>: <span class="number">10</span>, <span class="string">"ytick.major.size"</span>: <span class="number">10</span>&#125;)</span><br><span class="line">data = np.random.normal(size=(<span class="number">20</span>,<span class="number">6</span>)) + np.arange(<span class="number">6</span>) / <span class="number">2</span></span><br><span class="line">sns.boxplot(data=data)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ax2 =  fig.add_subplot(<span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">sinplot()</span><br></pre></td></tr></table></figure>
+<p><img src="output_6_0.png" alt="png"></p>
+<h2 id="sns-despine-设置坐标轴"><a href="#sns-despine-设置坐标轴" class="headerlink" title="sns.despine() 设置坐标轴"></a>sns.despine() 设置坐标轴</h2><p><em>seaborn.despine(fig=None, ax=None, top=True, right=True, left=False, bottom=False, offset=None, trim=False)</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置图表坐标轴</span></span><br><span class="line"></span><br><span class="line">sns.set(style=<span class="string">'ticks'</span>,font_scale=<span class="number">1</span>)</span><br><span class="line"><span class="comment"># 设置风格</span></span><br><span class="line"></span><br><span class="line">fig = plt.figure(figsize=(<span class="number">10</span>,<span class="number">12</span>))</span><br><span class="line">plt.subplots_adjust(hspace=<span class="number">0.3</span>)   <span class="comment"># 调整子图间距</span></span><br><span class="line"><span class="comment"># 图表基本设置</span></span><br><span class="line"></span><br><span class="line">ax1 = fig.add_subplot(<span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">sinplot()</span><br><span class="line">sns.despine(ax=ax1)</span><br><span class="line"><span class="comment"># 默认隐藏右边和上边的坐标轴</span></span><br><span class="line"></span><br><span class="line">ax2 = fig.add_subplot(<span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">sns.violinplot(data=data)</span><br><span class="line">sns.despine(ax=ax2,offset=&#123;<span class="string">'bottom'</span>:<span class="number">5</span>,<span class="string">'left'</span>:<span class="number">10</span>&#125;)</span><br><span class="line"><span class="comment"># offset ：坐标轴是否分开偏移,正值向外侧移动，负值向内侧移动.可用字典单独对每个轴设置</span></span><br><span class="line"><span class="comment"># trim: 当为True时，坐标轴两端限制在数据的最大最小值处</span></span><br><span class="line"></span><br><span class="line">ax3 = fig.add_subplot(<span class="number">3</span>, <span class="number">1</span>, <span class="number">3</span>)</span><br><span class="line">sns.boxplot(data=data, palette=<span class="string">'deep'</span>)</span><br><span class="line">sns.despine(ax=ax3,left=<span class="keyword">True</span>, right= <span class="keyword">False</span>, trim=<span class="keyword">True</span>,</span><br><span class="line">           offset=&#123;<span class="string">'bottom'</span>:<span class="number">10</span>,<span class="string">'right'</span>:<span class="number">10</span>&#125;)</span><br><span class="line"><span class="comment"># top, right, left, bottom：布尔型，为True时不显示</span></span><br></pre></td></tr></table></figure>
+<p><img src="output_8_0.png" alt="png"></p>
+<h2 id="sns-axes-style-设置子图风格"><a href="#sns-axes-style-设置子图风格" class="headerlink" title="sns.axes_style() 设置子图风格"></a>sns.axes_style() 设置子图风格</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 4、axes_style()</span></span><br><span class="line"><span class="comment"># 设置局部图表风格，可学习和with配合的用法</span></span><br><span class="line"></span><br><span class="line">fig = plt.figure(figsize=(<span class="number">10</span>,<span class="number">8</span>))</span><br><span class="line"><span class="keyword">with</span> sns.axes_style(<span class="string">"darkgrid"</span>):</span><br><span class="line">    plt.subplot(<span class="number">211</span>)</span><br><span class="line">    sinplot()</span><br><span class="line"><span class="comment"># 设置局部图表风格，用with做代码块区分</span></span><br><span class="line"></span><br><span class="line">sns.set_style(<span class="string">"whitegrid"</span>)</span><br><span class="line">plt.subplot(<span class="number">212</span>)</span><br><span class="line">sinplot()</span><br><span class="line"><span class="comment"># 外部表格风格</span></span><br></pre></td></tr></table></figure>
+<p><img src="output_10_0.png" alt="png"></p>
+<h2 id="设置显示比例尺度-set-context"><a href="#设置显示比例尺度-set-context" class="headerlink" title="设置显示比例尺度 set_context()"></a>设置显示比例尺度 set_context()</h2><p><em>seaborn.set_context（context = None，font_scale = 1，rc = None )</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置显示比例尺度</span></span><br><span class="line"><span class="comment"># 选择包括：'paper', 'notebook', 'talk', 'poster'.这四个是预设的。不会影响整体样式。</span></span><br><span class="line"><span class="comment"># 默认为notebook</span></span><br><span class="line"></span><br><span class="line">sns.set_context(<span class="string">"notebook"</span>)</span><br><span class="line">sinplot()</span><br><span class="line">plt.grid(linestyle=<span class="string">'--'</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="output_12_0.png" alt="png"></p>
+<h1 id="图标颜色设置-color-palette"><a href="#图标颜色设置-color-palette" class="headerlink" title="图标颜色设置 color_palette()"></a>图标颜色设置 color_palette()</h1><p><em>sns.color_palette(palette=None, n_colors=None, desat=None)</em></p>
+<p>我们选择颜色常常依据数据特征来选择，所以下面就从</p>
+<ul>
+<li><code>分类</code>：彼此间差异较大</li>
+<li><code>连续</code>：颜色按照顺序渐变</li>
+<li><code>发散</code>：中间颜色浅，两端颜色深</li>
+</ul>
+<p>三个调色板来讲解<code>color_palette()</code>函数</p>
+<h2 id="分类调色板"><a href="#分类调色板" class="headerlink" title="分类调色板"></a>分类调色板</h2><p>当你不用区分离散数据的顺序时，建议使用分类调色板</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 默认6种颜色：deep, muted, pastel, bright, dark, colorblind</span></span><br><span class="line"><span class="comment"># n_colors：int,调色板中的颜色数量</span></span><br><span class="line"><span class="comment"># dasat:float，去饱和度0-1之间</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">current_palette = sns.color_palette()</span><br><span class="line">sns.palplot(current_palette)</span><br><span class="line"><span class="comment"># 当不带参数的调用将返回当前默认颜色循环中的所有颜色</span></span><br><span class="line"><span class="comment"># 可以传入任何matplotlib支持的颜色</span></span><br></pre></td></tr></table></figure>
+<p><img src="output_14_0.png" alt="png"></p>
+<h3 id="圆形调色系统"><a href="#圆形调色系统" class="headerlink" title="圆形调色系统"></a>圆形调色系统</h3><p>当需要6中以上的颜色时，可以在圆形颜色空间中按均匀间隔画出颜色。</p>
+<p>最常见的是使用<code>hls</code>颜色空间。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sns.palplot(sns.color_palette(<span class="string">'hls'</span>,<span class="number">8</span>))</span><br><span class="line"><span class="comment"># 颜色色块个数为8个</span></span><br></pre></td></tr></table></figure>
+<p><img src="output_16_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data = np.random.normal(size=(<span class="number">10</span>, <span class="number">8</span>)) + np.arange(<span class="number">8</span>) / <span class="number">2</span></span><br><span class="line">sns.boxplot(data=data,palette=sns.color_palette(<span class="string">"hls"</span>, <span class="number">8</span>))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="output_17_0.png" alt="png"></p>
+<ul>
+<li>HLS色调空间：<em>hls_palette([n_colors, h, l, s])</em>  </li>
+<li>HUSL色调空间：<em>husl_palette([n_colors, h, l, s])</em></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置亮度，饱和度</span></span><br><span class="line"><span class="comment"># h - 第一个色调</span></span><br><span class="line"><span class="comment"># l - 亮度</span></span><br><span class="line"><span class="comment"># s - 饱和度</span></span><br><span class="line"></span><br><span class="line">sns.palplot(sns.husl_palette(<span class="number">8</span>, l=<span class="number">.6</span>, s=<span class="number">.7</span>))</span><br><span class="line"><span class="comment"># 这个看上去更舒服，更易区分</span></span><br></pre></td></tr></table></figure>
+<p><img src="output_19_0.png" alt="png"></p>
+<h3 id="使用分类Color-Brewer调色板"><a href="#使用分类Color-Brewer调色板" class="headerlink" title="使用分类Color Brewer调色板"></a>使用分类Color Brewer调色板</h3><p>另一个分类色板来源于Color Brewer（<code>同样也具有连续色板和发散色板</code>），它也同样存在于matplotlib colormaps中，但是并没有得到很好的处理。在Seaborn中，当你调用Color Brewer分类色板时，你总能得到离散的颜色，但是这意味着它们在某一点开始了循环。</p>
+<p><a href="http://colorbrewer2.org" target="_blank" rel="noopener">Color Brewer</a>网站的一个很好的功能是它提供了一些关于哪些调色板是色盲安全的指导</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Color Brewer颜色设置</span></span><br><span class="line">sns.palplot(sns.color_palette(<span class="string">"Paired"</span>,<span class="number">8</span>))</span><br><span class="line">sns.palplot(sns.color_palette(<span class="string">"Set1"</span>,<span class="number">10</span>))</span><br></pre></td></tr></table></figure>
+<p><img src="output_21_0.png" alt="png"></p>
+<p><img src="output_21_1.png" alt="png"></p>
+<h3 id="使用xkcd颜色测量中的命名颜色"><a href="#使用xkcd颜色测量中的命名颜色" class="headerlink" title="使用xkcd颜色测量中的命名颜色"></a>使用xkcd颜色测量中的命名颜色</h3><p>xkcd包含了一系列命名RGB颜色。共954种颜色，您现在可以使用xkcd_rgb字典在seaborn中引用它们：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plt.plot([<span class="number">0</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">1</span>], sns.xkcd_rgb[<span class="string">"pale red"</span>], lw=<span class="number">3</span>)</span><br><span class="line">plt.plot([<span class="number">0</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">2</span>], sns.xkcd_rgb[<span class="string">"medium green"</span>], lw=<span class="number">3</span>)</span><br><span class="line">plt.plot([<span class="number">0</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">3</span>], sns.xkcd_rgb[<span class="string">"denim blue"</span>], lw=<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="output_23_1.png" alt="png"></p>
+<h2 id="顺序调色板"><a href="#顺序调色板" class="headerlink" title="顺序调色板"></a>顺序调色板</h2><p>当数据范围从相对较低或不感兴趣的值到相对较高或有趣的值时，可以使用连续(顺序)调色板，在kdeplot()和heatmap()函数中常常会用到。</p>
+<p>具有大色调偏移的色彩图往往会引入数据中不存在的不连续性，并且我们的视觉系统无法自然地将彩虹映射到诸如“高”或“低”的定量区别。结果是这些可视化最终更像是一个谜题，它们模糊了数据中的模式而不是揭示它们</p>
+<p>所以对于顺序数据，最好使用色调最多相对微妙偏移的调色板，伴随着亮度和饱和度的大幅度变化。这种方法自然会吸引人们关注数据的相对重要部分</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sns.palplot(sns.color_palette(<span class="string">"Blues"</span>))</span><br><span class="line">sns.palplot(sns.color_palette(<span class="string">"Blues_r"</span>))</span><br><span class="line"><span class="comment"># 与matplotlib中一样，如果您希望反转亮度渐变，则可以为_r调色板名称添加后缀</span></span><br><span class="line"><span class="comment"># 不是所有颜色都可以反转！！！</span></span><br></pre></td></tr></table></figure>
+<p><img src="output_25_0.png" alt="png"></p>
+<p><img src="output_25_1.png" alt="png"></p>
+<h3 id="顺序-cubehelix-调色板"><a href="#顺序-cubehelix-调色板" class="headerlink" title="顺序 cubehelix 调色板"></a>顺序 cubehelix 调色板</h3><p><a href="https://www.mrao.cam.ac.uk/~dag/CUBEHELIX/" target="_blank" rel="noopener">cubehelix</a>调色板系统既能亮度线性变化同时也能色调变化的线性色板。这意味着当转换为黑白（用于打印）或由色盲个人查看时，色彩映射中的信息将被保留。</p>
+<p><em>seaborn.cubehelix_palette（n_colors = 6，start = 0，rot = 0.4，gamma = 1.0，hue = 0.8，light = 0.85，dark = 0.15，reverse = False，as_cmap = False ）</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按照线性增长计算，设置颜色</span></span><br><span class="line"></span><br><span class="line">sns.palplot(sns.color_palette(<span class="string">"cubehelix"</span>, <span class="number">8</span>))</span><br><span class="line">sns.palplot(sns.cubehelix_palette(<span class="number">8</span>, gamma=<span class="number">2</span>))</span><br><span class="line">sns.palplot(sns.cubehelix_palette(<span class="number">8</span>, start=<span class="number">.5</span>, rot=<span class="number">-.75</span>))</span><br><span class="line">sns.palplot(sns.cubehelix_palette(<span class="number">8</span>, start=<span class="number">2</span>, rot=<span class="number">0</span>, dark=<span class="number">0</span>, light=<span class="number">.95</span>, reverse=<span class="keyword">True</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># n_colors → 颜色个数</span></span><br><span class="line"><span class="comment"># start → 值区间在[0,3]，开始颜色</span></span><br><span class="line"><span class="comment"># rot → float,颜色旋转角度,可能是（-1,1）之间</span></span><br><span class="line"><span class="comment"># gamma → 颜色伽马值，&gt;1 较亮，&lt;1 较暗</span></span><br><span class="line"><span class="comment"># dark，light → 值区间0-1，颜色深浅</span></span><br><span class="line"><span class="comment"># reverse → 布尔值，默认为False，由浅到深</span></span><br></pre></td></tr></table></figure>
+<p><img src="output_27_0.png" alt="png"></p>
+<p><img src="output_27_1.png" alt="png"></p>
+<p><img src="output_27_2.png" alt="png"></p>
+<p><img src="output_27_3.png" alt="png"></p>
+<h3 id="自定义顺序调色板"><a href="#自定义顺序调色板" class="headerlink" title="自定义顺序调色板"></a>自定义顺序调色板</h3><p>对于自定义顺序调色板的简单界面，您可以使用<code>light_palette()</code>或使用<code>dark_palette()</code>，都是由单一的颜色并生成从浅色或深色去饱和值到该颜色的渐变调色板。这些函数还伴随着启动交互式小部件以创建这些调色板的功能</p>
+<p><em>seaborn.light_palette（color，n_colors = 6，reverse = False，as_cmap = False，input =’rgb’ ）</em><br><em>seaborn.dark_palette（color，n_colors = 6，reverse = False，as_cmap = False，input =’rgb’ ）</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># color: 十六进制代码，html颜色名称或input空间中的元组</span></span><br><span class="line"><span class="comment"># input: &#123;'rgb'，'hls'，'husl'，xkcd'&#125;</span></span><br><span class="line"><span class="comment"># 用于解释输入颜色的颜色空间。前三个选项适用于元组输入，后者适用于字符串输入</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sns.palplot(sns.light_palette(<span class="string">"green"</span>))<span class="comment"># 按照green做浅色调色盘</span></span><br><span class="line">sns.palplot(sns.dark_palette(<span class="string">'green'</span>, reverse=<span class="keyword">True</span>))<span class="comment"># 按照green做深色调色盘</span></span><br><span class="line"></span><br><span class="line">sns.palplot(sns.light_palette((<span class="number">260</span>, <span class="number">75</span>, <span class="number">60</span>), input=<span class="string">"husl"</span>))</span><br><span class="line">sns.palplot(sns.dark_palette(<span class="string">"muted purple"</span>, input=<span class="string">"xkcd"</span>))</span><br></pre></td></tr></table></figure>
+<p><img src="output_29_0.png" alt="png"></p>
+<p><img src="output_29_1.png" alt="png"></p>
+<p><img src="output_29_2.png" alt="png"></p>
+<p><img src="output_29_3.png" alt="png"></p>
+<h2 id="发散的调色板"><a href="#发散的调色板" class="headerlink" title="发散的调色板"></a>发散的调色板</h2><p>第三类调色板称为“发散”。这些用于大低值和高值都很有趣的数据。数据中通常还有明确定义的中点。例如，如果要绘制某个基线时间点的温度变化，最好使用偏差色图来显示相对减少的区域和相对增加的区域。</p>
+<p><strong>同样重要的是要强调使用红色和绿色应该避免，因为大量潜在的观众将无法区分它们</strong></p>
+<p><em>seaborn.diverging_palette(h_neg, h_pos, s=75, l=50, sep=10, n=6,<br>center=’light’, as_cmap=False)</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建分散颜色</span></span><br><span class="line"><span class="comment"># h_neg, h_pos → 起始/终止颜色值</span></span><br><span class="line"><span class="comment"># s → 值区间0-100，饱和度</span></span><br><span class="line"><span class="comment"># l → 值区间0-100，亮度</span></span><br><span class="line"><span class="comment"># n → 颜色个数</span></span><br><span class="line"><span class="comment"># center → 中心颜色为浅色还是深色“light”，“dark”,默认为light</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Color Brewer库带有一组精心挑选的发散色图</span></span><br><span class="line">sns.palplot(sns.color_palette(<span class="string">"BrBG"</span>, <span class="number">7</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当然可以自己定制</span></span><br><span class="line">sns.palplot(sns.diverging_palette(<span class="number">145</span>, <span class="number">280</span>, s=<span class="number">85</span>, l=<span class="number">25</span>, n=<span class="number">7</span>))</span><br></pre></td></tr></table></figure>
+<p><img src="output_31_0.png" alt="png"></p>
+<p><img src="output_31_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(figsize = (<span class="number">8</span>,<span class="number">6</span>))</span><br><span class="line">x = np.arange(<span class="number">16</span>).reshape(<span class="number">4</span>, <span class="number">4</span>)</span><br><span class="line">cmap = sns.diverging_palette(<span class="number">200</span>, <span class="number">20</span>, sep=<span class="number">16</span>, as_cmap=<span class="keyword">True</span>)</span><br><span class="line">sns.heatmap(x, cmap=cmap)</span><br></pre></td></tr></table></figure>
+<p><img src="output_32_1.png" alt="png"></p>
+<h2 id="选择调色板-choose-colorbrewer-palette"><a href="#选择调色板-choose-colorbrewer-palette" class="headerlink" title="选择调色板 choose_colorbrewer_palette()"></a>选择调色板 choose_colorbrewer_palette()</h2><p>您可以使用该<code>choose_colorbrewer_palette()</code>函数来播放各种颜色选项，如果希望返回值是可以传递给seaborn或matplotlib函数的colormap对象，则可以将as_cmap参数设置为True</p>
+<p><em>seaborn.choose_colorbrewer_palette(data_type, as_cmap=False)</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sns.choose_colorbrewer_palette(<span class="string">'q'</span>)</span><br><span class="line"><span class="comment"># sequential：顺序，可以用 s 来代替</span></span><br><span class="line"><span class="comment"># diverging：发散, 可以用 d 来代替</span></span><br><span class="line"><span class="comment"># qualitative：分类, 可以用 q 来代替</span></span><br></pre></td></tr></table></figure>
+<img src="/blogs/4f39f027/output_33_0.png" title="可通过调节按钮来寻找调色板">
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Color Brewer的颜色图：</span></span><br><span class="line"><span class="comment"># Accent, Accent_r, Blues, Blues_r, BrBG, BrBG_r, BuGn, BuGn_r, BuPu,</span></span><br><span class="line"><span class="comment"># BuPu_r, CMRmap, CMRmap_r, Dark2, Dark2_r, GnBu, GnBu_r, Greens, Greens_r, Greys,</span></span><br><span class="line"><span class="comment">#Greys_r, OrRd, OrRd_r, Oranges, Oranges_r, PRGn, PRGn_r,</span></span><br><span class="line"><span class="comment"># Paired, Paired_r, Pastel1, Pastel1_r, Pastel2, Pastel2_r, PiYG, PiYG_r, PuBu, PuBuGn,</span></span><br><span class="line"><span class="comment">#PuBuGn_r, PuBu_r, PuOr, PuOr_r, PuRd, PuRd_r, Purples,</span></span><br><span class="line"><span class="comment"># Purples_r, RdBu, RdBu_r, RdGy, RdGy_r, RdPu, RdPu_r, RdYlBu, RdYlBu_r, RdYlGn, RdYlGn_r,</span></span><br><span class="line"><span class="comment"># Reds, Reds_r, Set1, Set1_r, Set2, Set2_r, Set3,</span></span><br><span class="line"><span class="comment"># Set3_r, Spectral, Spectral_r, Wistia, Wistia_r, YlGn, YlGnBu, YlGnBu_r, YlGn_r, YlOrBr,</span></span><br><span class="line"><span class="comment"># YlOrBr_r, YlOrRd, YlOrRd_r, afmhot, afmhot_r,</span></span><br><span class="line"><span class="comment"># autumn, autumn_r, binary, binary_r, bone, bone_r, brg, brg_r, bwr, bwr_r, cool, cool_r,</span></span><br><span class="line"><span class="comment"># coolwarm, coolwarm_r, copper, copper_r, cubehelix,</span></span><br><span class="line"><span class="comment"># cubehelix_r, flag, flag_r, gist_earth, gist_earth_r, gist_gray, gist_gray_r, gist_heat,</span></span><br><span class="line"><span class="comment"># gist_heat_r, gist_ncar, gist_ncar_r, gist_rainbow,</span></span><br><span class="line"><span class="comment"># gist_rainbow_r, gist_stern, gist_stern_r, gist_yarg, gist_yarg_r, gnuplot, gnuplot2,</span></span><br><span class="line"><span class="comment"># gnuplot2_r, gnuplot_r, gray, gray_r, hot, hot_r, hsv,</span></span><br><span class="line"><span class="comment"># hsv_r, icefire, icefire_r, inferno, inferno_r, jet, jet_r, magma, magma_r, mako,</span></span><br><span class="line"><span class="comment"># mako_r, nipy_spectral, nipy_spectral_r, ocean, ocean_r,</span></span><br><span class="line"><span class="comment"># pink, pink_r, plasma, plasma_r, prism, prism_r, rainbow, rainbow_r, rocket, rocket_r,</span></span><br><span class="line"><span class="comment"># seismic, seismic_r, spectral, spectral_r, spring,</span></span><br><span class="line"><span class="comment"># spring_r, summer, summer_r, terrain, terrain_r, viridis, viridis_r, vlag, vlag_r, winter, winter_r</span></span><br></pre></td></tr></table></figure>
+<h1 id="设置默认的调色板"><a href="#设置默认的调色板" class="headerlink" title="设置默认的调色板"></a>设置默认的调色板</h1><p>类似于color_palette()。<code>set_palette()</code>接受相同的参数，但它会更改默认的matplotlib参数，以便将调色板<strong>应用于所有绘图。</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置调色板后，绘图创建图表</span></span><br><span class="line"></span><br><span class="line">sns.set_style(<span class="string">"whitegrid"</span>)</span><br><span class="line">fig = plt.figure(figsize=(<span class="number">8</span>,<span class="number">6</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置风格</span></span><br><span class="line"><span class="keyword">with</span> sns.color_palette(<span class="string">"PuBuGn_d"</span>):</span><br><span class="line">    plt.subplot(<span class="number">211</span>)</span><br><span class="line">    sinplot()</span><br><span class="line"></span><br><span class="line">sns.set_palette(<span class="string">"husl"</span>)</span><br><span class="line">plt.subplot(<span class="number">212</span>)</span><br><span class="line">sinplot()</span><br><span class="line"><span class="comment"># 绘制系列颜色</span></span><br></pre></td></tr></table></figure>
+<p><img src="output_38_0.png" alt="png"></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>GengPeng</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="https://www.gengpeng.me/blogs/4f39f027/" title="python数据可视化seaborn（一）——整体样式与调色板">https://www.gengpeng.me/blogs/4f39f027/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/可视化/" rel="tag"># 可视化</a>
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/seaborn/" rel="tag"># seaborn</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blogs/72901e2/" rel="next" title="Python利用openpyxl来操作Excel（一）">
+                <i class="fa fa-chevron-left"></i> Python利用openpyxl来操作Excel（一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div id="gitalk-container">
+    </div>
+    
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="GengPeng" />
+            
+              <p class="site-author-name" itemprop="name">GengPeng</p>
+              <p class="site-description motion-element" itemprop="description">数据分析|机器学习|统计学习|音乐|Python|读书笔记|R</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/GengDaPeng" title="GitHub &rarr; https://github.com/GengDaPeng" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:bingshan222@hotmail.com" title="E-Mail &rarr; mailto:bingshan222@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/yashemao222" title="Weibo &rarr; https://weibo.com/yashemao222" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://blog.csdn.net/ICERON" title="CSDN &rarr; https://blog.csdn.net/ICERON" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>CSDN</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" /></a>
+             </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friends Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.yuhaowei.com/" title="http://www.yuhaowei.com/" rel="noopener" target="_blank">豪威</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#图表风格（style）设置"><span class="nav-number">1.</span> <span class="nav-text">图表风格（style）设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sns-set-设置样式参数"><span class="nav-number">1.1.</span> <span class="nav-text">sns.set()  设置样式参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set-style-设置图标风格"><span class="nav-number">1.2.</span> <span class="nav-text">set_style() 设置图标风格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sns-despine-设置坐标轴"><span class="nav-number">1.3.</span> <span class="nav-text">sns.despine() 设置坐标轴</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sns-axes-style-设置子图风格"><span class="nav-number">1.4.</span> <span class="nav-text">sns.axes_style() 设置子图风格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置显示比例尺度-set-context"><span class="nav-number">1.5.</span> <span class="nav-text">设置显示比例尺度 set_context()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图标颜色设置-color-palette"><span class="nav-number">2.</span> <span class="nav-text">图标颜色设置 color_palette()</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分类调色板"><span class="nav-number">2.1.</span> <span class="nav-text">分类调色板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#圆形调色系统"><span class="nav-number">2.1.1.</span> <span class="nav-text">圆形调色系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用分类Color-Brewer调色板"><span class="nav-number">2.1.2.</span> <span class="nav-text">使用分类Color Brewer调色板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用xkcd颜色测量中的命名颜色"><span class="nav-number">2.1.3.</span> <span class="nav-text">使用xkcd颜色测量中的命名颜色</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序调色板"><span class="nav-number">2.2.</span> <span class="nav-text">顺序调色板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顺序-cubehelix-调色板"><span class="nav-number">2.2.1.</span> <span class="nav-text">顺序 cubehelix 调色板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义顺序调色板"><span class="nav-number">2.2.2.</span> <span class="nav-text">自定义顺序调色板</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发散的调色板"><span class="nav-number">2.3.</span> <span class="nav-text">发散的调色板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择调色板-choose-colorbrewer-palette"><span class="nav-number">2.4.</span> <span class="nav-text">选择调色板 choose_colorbrewer_palette()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置默认的调色板"><span class="nav-number">3.</span> <span class="nav-text">设置默认的调色板</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GengPeng</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v6.6.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+
+  
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.css">
+
+  
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+    
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'a19c3ba0279e4a0e00b2',
+          clientSecret: '009775c7122f0275fd6f58caf0e93c246a1ded57',
+          repo: 'GengDaPeng.github.io',
+          owner: 'GengDaPeng',
+          admin: ['GengDaPeng'],
+          id: md5(location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('-1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+
+</body>
+</html>
