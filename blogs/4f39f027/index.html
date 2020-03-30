@@ -160,50 +160,50 @@
 <meta name="keywords" content="python,可视化,seaborn">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python数据可视化seaborn（一）—— 整体样式与调色板">
-<meta property="og:url" content="https://www.gengpeng.com/blogs/4f39f027/index.html">
+<meta property="og:url" content="https://www.gengdapeng.com/blogs/4f39f027/index.html">
 <meta property="og:site_name" content="GengPeng&#39;s Blog">
 <meta property="og:description" content="很久之前对seaborn有过一些涉及但是没有深入探究，这次有趁着有数据可视化的需求，就好好学一学 Seaborn其实是在matplotlib的基础上进行了更高级的API封装，从而使得作图更加容易，在大多数情况下使用seaborn就能做出很具有吸引力的图，为数据分析提供了很大的便利性。但是应该把Seaborn视为matplotlib的补充，而不是替代物。 这次就从最基本的图标风格和调色板开始，学习s">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_2_0.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_4_0.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_6_0.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_8_0.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_10_0.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_12_0.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_14_0.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_16_0.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_17_0.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_19_0.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_21_0.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_21_1.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_23_1.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_25_0.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_25_1.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_27_0.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_27_1.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_27_2.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_27_3.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_29_0.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_29_1.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_29_2.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_29_3.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_31_0.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_31_1.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_32_1.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_33_0.png">
-<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_38_0.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_2_0.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_4_0.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_6_0.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_8_0.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_10_0.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_12_0.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_14_0.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_16_0.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_17_0.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_19_0.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_21_0.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_21_1.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_23_1.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_25_0.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_25_1.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_27_0.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_27_1.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_27_2.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_27_3.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_29_0.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_29_1.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_29_2.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_29_3.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_31_0.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_31_1.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_32_1.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_33_0.png">
+<meta property="og:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_38_0.png">
 <meta property="og:updated_time" content="2019-01-09T10:43:48.561Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python数据可视化seaborn（一）—— 整体样式与调色板">
 <meta name="twitter:description" content="很久之前对seaborn有过一些涉及但是没有深入探究，这次有趁着有数据可视化的需求，就好好学一学 Seaborn其实是在matplotlib的基础上进行了更高级的API封装，从而使得作图更加容易，在大多数情况下使用seaborn就能做出很具有吸引力的图，为数据分析提供了很大的便利性。但是应该把Seaborn视为matplotlib的补充，而不是替代物。 这次就从最基本的图标风格和调色板开始，学习s">
-<meta name="twitter:image" content="https://www.gengpeng.com/blogs/4f39f027/output_2_0.png">
+<meta name="twitter:image" content="https://www.gengdapeng.com/blogs/4f39f027/output_2_0.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://www.gengpeng.com/blogs/4f39f027/">
+  <link rel="canonical" href="https://www.gengdapeng.com/blogs/4f39f027/">
 
 
 
@@ -499,7 +499,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.gengpeng.com/blogs/4f39f027/">
+    <link itemprop="mainEntityOfPage" href="https://www.gengdapeng.com/blogs/4f39f027/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GengPeng">
@@ -735,7 +735,7 @@
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="https://www.gengpeng.com/blogs/4f39f027/" title="python数据可视化seaborn（一）—— 整体样式与调色板">https://www.gengpeng.com/blogs/4f39f027/</a>
+    <a href="https://www.gengdapeng.com/blogs/4f39f027/" title="python数据可视化seaborn（一）—— 整体样式与调色板">https://www.gengdapeng.com/blogs/4f39f027/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
