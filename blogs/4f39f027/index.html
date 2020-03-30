@@ -15,10 +15,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-CN,en,default">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -32,12 +32,12 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
-  <meta name="google-site-verification" content="4fazdw9HUAUX8B1a2DY4MD84nMgdMExghBhQgu6O4Bw" />
+  <meta name="google-site-verification" content="4fazdw9HUAUX8B1a2DY4MD84nMgdMExghBhQgu6O4Bw">
 
 
 
@@ -56,7 +56,7 @@
   
     
   
-  <link href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+  <link href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
 
 
 
@@ -104,9 +104,9 @@
 
   
 
-<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
@@ -157,53 +157,53 @@
 
 
   <meta name="description" content="很久之前对seaborn有过一些涉及但是没有深入探究，这次有趁着有数据可视化的需求，就好好学一学 Seaborn其实是在matplotlib的基础上进行了更高级的API封装，从而使得作图更加容易，在大多数情况下使用seaborn就能做出很具有吸引力的图，为数据分析提供了很大的便利性。但是应该把Seaborn视为matplotlib的补充，而不是替代物。 这次就从最基本的图标风格和调色板开始，学习s">
-<meta name="keywords" content="可视化,python,seaborn">
+<meta name="keywords" content="python,可视化,seaborn">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python数据可视化seaborn（一）—— 整体样式与调色板">
-<meta property="og:url" content="https://www.gengpeng.me/blogs/4f39f027/index.html">
+<meta property="og:url" content="https://www.gengpeng.com/blogs/4f39f027/index.html">
 <meta property="og:site_name" content="GengPeng&#39;s Blog">
 <meta property="og:description" content="很久之前对seaborn有过一些涉及但是没有深入探究，这次有趁着有数据可视化的需求，就好好学一学 Seaborn其实是在matplotlib的基础上进行了更高级的API封装，从而使得作图更加容易，在大多数情况下使用seaborn就能做出很具有吸引力的图，为数据分析提供了很大的便利性。但是应该把Seaborn视为matplotlib的补充，而不是替代物。 这次就从最基本的图标风格和调色板开始，学习s">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_2_0.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_4_0.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_6_0.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_8_0.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_10_0.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_12_0.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_14_0.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_16_0.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_17_0.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_19_0.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_21_0.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_21_1.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_23_1.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_25_0.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_25_1.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_27_0.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_27_1.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_27_2.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_27_3.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_29_0.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_29_1.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_29_2.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_29_3.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_31_0.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_31_1.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_32_1.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_33_0.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/4f39f027/output_38_0.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_2_0.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_4_0.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_6_0.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_8_0.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_10_0.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_12_0.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_14_0.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_16_0.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_17_0.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_19_0.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_21_0.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_21_1.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_23_1.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_25_0.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_25_1.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_27_0.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_27_1.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_27_2.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_27_3.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_29_0.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_29_1.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_29_2.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_29_3.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_31_0.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_31_1.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_32_1.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_33_0.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/4f39f027/output_38_0.png">
 <meta property="og:updated_time" content="2019-01-09T10:43:48.561Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python数据可视化seaborn（一）—— 整体样式与调色板">
 <meta name="twitter:description" content="很久之前对seaborn有过一些涉及但是没有深入探究，这次有趁着有数据可视化的需求，就好好学一学 Seaborn其实是在matplotlib的基础上进行了更高级的API封装，从而使得作图更加容易，在大多数情况下使用seaborn就能做出很具有吸引力的图，为数据分析提供了很大的便利性。但是应该把Seaborn视为matplotlib的补充，而不是替代物。 这次就从最基本的图标风格和调色板开始，学习s">
-<meta name="twitter:image" content="https://www.gengpeng.me/blogs/4f39f027/output_2_0.png">
+<meta name="twitter:image" content="https://www.gengpeng.com/blogs/4f39f027/output_2_0.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://www.gengpeng.me/blogs/4f39f027/"/>
+  <link rel="canonical" href="https://www.gengpeng.com/blogs/4f39f027/">
 
 
 
@@ -323,7 +323,7 @@
       
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
 
   </li>
         
@@ -342,7 +342,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">18</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">18</span></a>
 
   </li>
         
@@ -361,7 +361,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">15</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">14</span></a>
 
   </li>
         
@@ -380,7 +380,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">14</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">14</span></a>
 
   </li>
         
@@ -399,7 +399,7 @@
       
     
 
-    <a href="/wiki/" rel="section"><i class="menu-item-icon fa fa-fw fa-wikipedia-w"></i> <br />维基</a>
+    <a href="/wiki/" rel="section"><i class="menu-item-icon fa fa-fw fa-wikipedia-w"></i> <br>维基</a>
 
   </li>
         
@@ -418,7 +418,7 @@
       
     
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
 
   </li>
 
@@ -429,7 +429,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
       
     </ul>
@@ -449,9 +449,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -501,11 +499,11 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.gengpeng.me/blogs/4f39f027/">
+    <link itemprop="mainEntityOfPage" href="https://www.gengpeng.com/blogs/4f39f027/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GengPeng">
-      <meta itemprop="description" content="数据分析|机器学习|统计学|音乐|Python|读书笔记|R">
+      <meta itemprop="description" content="数据分析|机器学习|统计学|音乐|Python|读书笔记|R|摄影">
       <meta itemprop="image" content="/images/39640212.jpg">
     </span>
 
@@ -566,7 +564,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -737,7 +735,7 @@
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="https://www.gengpeng.me/blogs/4f39f027/" title="python数据可视化seaborn（一）—— 整体样式与调色板">https://www.gengpeng.me/blogs/4f39f027/</a>
+    <a href="https://www.gengpeng.com/blogs/4f39f027/" title="python数据可视化seaborn（一）—— 整体样式与调色板">https://www.gengpeng.com/blogs/4f39f027/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -750,9 +748,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/可视化/" rel="tag"># 可视化</a>
-          
             <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/可视化/" rel="tag"># 可视化</a>
           
             <a href="/tags/seaborn/" rel="tag"># seaborn</a>
           
@@ -842,12 +840,10 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/39640212.jpg"
-                alt="GengPeng" />
+              <img class="site-author-image" itemprop="image" src="/images/39640212.jpg" alt="GengPeng">
             
               <p class="site-author-name" itemprop="name">GengPeng</p>
-              <p class="site-description motion-element" itemprop="description">数据分析|机器学习|统计学|音乐|Python|读书笔记|R</p>
+              <p class="site-description motion-element" itemprop="description">数据分析|机器学习|统计学|音乐|Python|读书笔记|R|摄影</p>
           </div>
 
           
@@ -898,9 +894,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1008,7 +1002,7 @@
               
               
               
-              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" /></a>
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
              </div>
           
 
@@ -1067,7 +1061,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
@@ -1079,7 +1073,7 @@
 </div>
 
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
 
 
 

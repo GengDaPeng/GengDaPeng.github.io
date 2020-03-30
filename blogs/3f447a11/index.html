@@ -15,10 +15,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-CN,en,default">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -32,12 +32,12 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
-  <meta name="google-site-verification" content="4fazdw9HUAUX8B1a2DY4MD84nMgdMExghBhQgu6O4Bw" />
+  <meta name="google-site-verification" content="4fazdw9HUAUX8B1a2DY4MD84nMgdMExghBhQgu6O4Bw">
 
 
 
@@ -56,7 +56,7 @@
   
     
   
-  <link href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+  <link href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
 
 
 
@@ -104,9 +104,9 @@
 
   
 
-<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
@@ -157,27 +157,27 @@
 
 
   <meta name="description" content="前段时间做了一个项目，该客户是来自教育行业，其主要的宣传获客手段就是在各个渠道投放广告，用广告将用户引流至网站。 但是广告的渠道非常多，那些渠道效果很好，那些效果不好。需要对广告效果分析针对性做广告效果测量和优化工作。我就想到之前学到的KMeans聚类分析广告的方法，在这里整理出来。供日后参考。">
-<meta name="keywords" content="机器学习,python">
+<meta name="keywords" content="python,机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于KMeans的广告效果聚类分析">
-<meta property="og:url" content="https://www.gengpeng.me/blogs/3f447a11/index.html">
+<meta property="og:url" content="https://www.gengpeng.com/blogs/3f447a11/index.html">
 <meta property="og:site_name" content="GengPeng&#39;s Blog">
 <meta property="og:description" content="前段时间做了一个项目，该客户是来自教育行业，其主要的宣传获客手段就是在各个渠道投放广告，用广告将用户引流至网站。 但是广告的渠道非常多，那些渠道效果很好，那些效果不好。需要对广告效果分析针对性做广告效果测量和优化工作。我就想到之前学到的KMeans聚类分析广告的方法，在这里整理出来。供日后参考。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/3f447a11/output_10_1.png">
-<meta property="og:image" content="https://www.gengpeng.me/blogs/3f447a11/output_23_0.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/3f447a11/output_10_1.png">
+<meta property="og:image" content="https://www.gengpeng.com/blogs/3f447a11/output_23_0.png">
 <meta property="og:updated_time" content="2019-05-05T13:31:37.894Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于KMeans的广告效果聚类分析">
 <meta name="twitter:description" content="前段时间做了一个项目，该客户是来自教育行业，其主要的宣传获客手段就是在各个渠道投放广告，用广告将用户引流至网站。 但是广告的渠道非常多，那些渠道效果很好，那些效果不好。需要对广告效果分析针对性做广告效果测量和优化工作。我就想到之前学到的KMeans聚类分析广告的方法，在这里整理出来。供日后参考。">
-<meta name="twitter:image" content="https://www.gengpeng.me/blogs/3f447a11/output_10_1.png">
+<meta name="twitter:image" content="https://www.gengpeng.com/blogs/3f447a11/output_10_1.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://www.gengpeng.me/blogs/3f447a11/"/>
+  <link rel="canonical" href="https://www.gengpeng.com/blogs/3f447a11/">
 
 
 
@@ -297,7 +297,7 @@
       
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
 
   </li>
         
@@ -316,7 +316,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">18</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">18</span></a>
 
   </li>
         
@@ -335,7 +335,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">15</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">14</span></a>
 
   </li>
         
@@ -354,7 +354,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">14</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">14</span></a>
 
   </li>
         
@@ -373,7 +373,7 @@
       
     
 
-    <a href="/wiki/" rel="section"><i class="menu-item-icon fa fa-fw fa-wikipedia-w"></i> <br />维基</a>
+    <a href="/wiki/" rel="section"><i class="menu-item-icon fa fa-fw fa-wikipedia-w"></i> <br>维基</a>
 
   </li>
         
@@ -392,7 +392,7 @@
       
     
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
 
   </li>
 
@@ -403,7 +403,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
       
     </ul>
@@ -423,9 +423,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -475,11 +473,11 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.gengpeng.me/blogs/3f447a11/">
+    <link itemprop="mainEntityOfPage" href="https://www.gengpeng.com/blogs/3f447a11/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GengPeng">
-      <meta itemprop="description" content="数据分析|机器学习|统计学|音乐|Python|读书笔记|R">
+      <meta itemprop="description" content="数据分析|机器学习|统计学|音乐|Python|读书笔记|R|摄影">
       <meta itemprop="image" content="/images/39640212.jpg">
     </span>
 
@@ -528,7 +526,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -698,7 +696,7 @@ Best K is:4 with average silhouette of 0.5697
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="https://www.gengpeng.me/blogs/3f447a11/" title="基于KMeans的广告效果聚类分析">https://www.gengpeng.me/blogs/3f447a11/</a>
+    <a href="https://www.gengpeng.com/blogs/3f447a11/" title="基于KMeans的广告效果聚类分析">https://www.gengpeng.com/blogs/3f447a11/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -711,9 +709,9 @@ Best K is:4 with average silhouette of 0.5697
       
         <div class="post-tags">
           
-            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
-          
             <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
         </div>
       
@@ -797,12 +795,10 @@ Best K is:4 with average silhouette of 0.5697
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/39640212.jpg"
-                alt="GengPeng" />
+              <img class="site-author-image" itemprop="image" src="/images/39640212.jpg" alt="GengPeng">
             
               <p class="site-author-name" itemprop="name">GengPeng</p>
-              <p class="site-description motion-element" itemprop="description">数据分析|机器学习|统计学|音乐|Python|读书笔记|R</p>
+              <p class="site-description motion-element" itemprop="description">数据分析|机器学习|统计学|音乐|Python|读书笔记|R|摄影</p>
           </div>
 
           
@@ -853,9 +849,7 @@ Best K is:4 with average silhouette of 0.5697
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -963,7 +957,7 @@ Best K is:4 with average silhouette of 0.5697
               
               
               
-              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" /></a>
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
              </div>
           
 
@@ -1022,7 +1016,7 @@ Best K is:4 with average silhouette of 0.5697
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
@@ -1034,7 +1028,7 @@ Best K is:4 with average silhouette of 0.5697
 </div>
 
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
 
 
 
